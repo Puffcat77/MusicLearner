@@ -31,7 +31,7 @@
             this.ExitButton = new System.Windows.Forms.Button();
             this.TheoryButton = new System.Windows.Forms.Button();
             this.PracticeButton = new System.Windows.Forms.Button();
-            this.CreateUserButton = new System.Windows.Forms.Button();
+            this.userButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // ExitButton
@@ -63,14 +63,15 @@
             this.PracticeButton.UseVisualStyleBackColor = true;
             this.PracticeButton.Click += new System.EventHandler(this.button3_Click);
             // 
-            // CreateUserButton
+            // userButton
             // 
-            this.CreateUserButton.Location = new System.Drawing.Point(288, 39);
-            this.CreateUserButton.Name = "CreateUserButton";
-            this.CreateUserButton.Size = new System.Drawing.Size(191, 87);
-            this.CreateUserButton.TabIndex = 3;
-            this.CreateUserButton.Text = "Создать пользователя";
-            this.CreateUserButton.UseVisualStyleBackColor = true;
+            this.userButton.Location = new System.Drawing.Point(288, 39);
+            this.userButton.Name = "userButton";
+            this.userButton.Size = new System.Drawing.Size(191, 87);
+            this.userButton.TabIndex = 3;
+            this.userButton.Text = "Пользователь";
+            this.userButton.UseVisualStyleBackColor = true;
+            this.userButton.Click += new System.EventHandler(this.userButton_Click);
             // 
             // Form1
             // 
@@ -78,7 +79,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.CreateUserButton);
+            this.Controls.Add(this.userButton);
             this.Controls.Add(this.PracticeButton);
             this.Controls.Add(this.TheoryButton);
             this.Controls.Add(this.ExitButton);
@@ -93,7 +94,7 @@
         private System.Windows.Forms.Button ExitButton;
         private System.Windows.Forms.Button TheoryButton;
         private System.Windows.Forms.Button PracticeButton;
-        private System.Windows.Forms.Button CreateUserButton;
+        private System.Windows.Forms.Button userButton;
     }
 }
 

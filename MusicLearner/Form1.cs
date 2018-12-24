@@ -26,5 +26,11 @@ namespace MusicLearner
         {
 
         }
+
+        private void userButton_Click(object sender, EventArgs e)
+        {
+            UserForm userForm = new UserForm();
+            userForm.ShowDialog();
+        }
     }
 }
