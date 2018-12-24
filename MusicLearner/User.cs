@@ -11,5 +11,6 @@ namespace MusicLearner
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string LearnerLevel { get; set; }
+        public string SomeDummyProperty { get; set; }
     }
 }
