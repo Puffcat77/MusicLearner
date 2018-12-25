@@ -14,22 +14,27 @@ namespace MusicLearner
     {
         public UserStorage()
         {
-            XDocument xDoc = new XDocument();
-            XElement Users = new XElement("users");
-            //XElement zeroUser = new XElement("defaultuser");
-            //XAttribute userFirstName = new XAttribute("FirstName","");
-            //XAttribute userLastName = new XAttribute("LastName", "");
-            //XAttribute userId = new XAttribute("Id", "");
-            //zeroUser.Add(userFirstName);
-            //zeroUser.Add(userLastName);
-            //zeroUser.Add(userId);
-            //Users.Add(zeroUser);
-            xDoc.Add(Users);
-            xDoc.Save("users.xml");
-            users = this.LoadUsers();
+            //XDocument xDoc = new XDocument();
+            //XElement Users = new XElement("users");
+            ////XElement zeroUser = new XElement("defaultuser");
+            ////XAttribute userFirstName = new XAttribute("FirstName","");
+            ////XAttribute userLastName = new XAttribute("LastName", "");
+            ////XAttribute userId = new XAttribute("Id", "");
+            ////zeroUser.Add(userFirstName);
+            ////zeroUser.Add(userLastName);
+            ////zeroUser.Add(userId);
+            ////Users.Add(zeroUser);
+            //xDoc.Add(Users);
+            //xDoc.Save("users.xml");
+            //users = this.LoadUsers();
+
+            if (!File.Exists("users.xml"))
+            {
+                SaveUsers(users);
+            }
         }
 
-        XmlSerializer formatter = new XmlSerializer(typeof(User[]));
+        XmlSerializer formatter = new XmlSerializer(typeof(List<User>));
         List<User> users = new List<User>();
         public void SaveUsers(List<User> users)
         {
