@@ -26,19 +26,19 @@ namespace MusicLearner
             //Users.Add(zeroUser);
             //xDoc.Add(Users);
             //xDoc.Save("users.xml");
-            this.SaveUsers(users);
+            //this.SaveUsers(users);
             users = this.LoadUsers();
         }
 
-        XmlSerializer formatter = new XmlSerializer(typeof(User[]));
+        XmlSerializer formatter = new XmlSerializer(typeof(List<User>));
         List<User> users = new List<User>();
         public void SaveUsers(List<User> users)
         {
             using (var xmlWriter = XmlWriter.Create("users.xml"))
             {
-                formatter.Serialize(xmlWriter, users.ToArray());
+                formatter.Serialize(xmlWriter, users);
                 xmlWriter.Close();
-                this.users = users.ToList();
+                this.users = users;
             }
         }
 
@@ -63,7 +63,6 @@ namespace MusicLearner
 
         public List<User> AddUser(User user,List<User> users)
         {
-            user.Id = users.Count + 1;
             users.Add(user);
             return users;
         }
@@ -71,8 +70,23 @@ namespace MusicLearner
         public List<User> DeleteUser (User user, List<User> users)
         {
             List<User> newUsers = users;
-            newUsers.Remove(user);
+            newUsers.Remove(users.Find((u)=> user.Id==u.Id));
             return newUsers;
+        }
+
+        public User ChooseUser(int userId, List<User> users)
+        {
+            User user = new User();
+            user = users.Find((u)=>u.Id==userId);
+            return user;
+        }
+
+        public List<User> ChangeUserData(User newUser, List<User> users)
+        {
+            int userNumber = users.FindIndex((u) => u.Id == newUser.Id);
+            users[userNumber].FirstName = newUser.FirstName;
+            users[userNumber].LastName = newUser.LastName;
+            return users;
         }
     }
 }
