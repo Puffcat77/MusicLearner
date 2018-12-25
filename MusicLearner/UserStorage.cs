@@ -14,8 +14,8 @@ namespace MusicLearner
     {
         public UserStorage()
         {
-            XDocument xDoc = new XDocument();
-            XElement Users = new XElement("users");
+            //XDocument xDoc = new XDocument();
+            //XElement Users = new XElement("users");
             //XElement zeroUser = new XElement("defaultuser");
             //XAttribute userFirstName = new XAttribute("FirstName","");
             //XAttribute userLastName = new XAttribute("LastName", "");
@@ -24,8 +24,9 @@ namespace MusicLearner
             //zeroUser.Add(userLastName);
             //zeroUser.Add(userId);
             //Users.Add(zeroUser);
-            xDoc.Add(Users);
-            xDoc.Save("users.xml");
+            //xDoc.Add(Users);
+            //xDoc.Save("users.xml");
+            this.SaveUsers(users);
             users = this.LoadUsers();
         }
 
@@ -35,20 +36,19 @@ namespace MusicLearner
         {
             using (var xmlWriter = XmlWriter.Create("users.xml"))
             {
-                formatter.Serialize(xmlWriter, users);
+                formatter.Serialize(xmlWriter, users.ToArray());
                 xmlWriter.Close();
-                this.users = users;
+                this.users = users.ToList();
             }
         }
 
-        internal List<User> LoadUsers()
+        public List<User> LoadUsers()
         {
-            //using (var xmlReader = XmlReader.Create("users.xml"))
-            //{
-            //    users = (List<User>)formatter.Deserialize(xmlReader);
-            //    xmlReader.Close();
-            //}
-
+            using (var xmlReader = XmlReader.Create("users.xml"))
+            {
+                users = (List<User>)formatter.Deserialize(xmlReader);
+                xmlReader.Close();
+            }
             return users;
         }
 
@@ -68,7 +68,7 @@ namespace MusicLearner
             return users;
         }
 
-        public List<User> DeleteUser (User user,List<User> users)
+        public List<User> DeleteUser (User user, List<User> users)
         {
             List<User> newUsers = users;
             newUsers.Remove(user);
