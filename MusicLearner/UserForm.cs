@@ -13,7 +13,7 @@ namespace MusicLearner
 {
     public partial class UserForm : Form
     {
-        public UserForm()
+        public UserForm(User user)
         {
             InitializeComponent();
             Users = userStorage.LoadUsers();
@@ -21,6 +21,7 @@ namespace MusicLearner
 
         UserStorage userStorage = new UserStorage();
         public List<User> Users { get; set; }
+        public User CurrentUser { get; set; }
         private void saveUserButton_Click(object sender, EventArgs e)
         {
             User user = new User();
@@ -82,13 +83,13 @@ namespace MusicLearner
 
         private void chooseUserButton_Click(object sender, EventArgs e)
         {
-            User user = new User { Id = int.Parse(idTextBox.Text) };
-            if (userStorage.UserExists(user, Users))
+            CurrentUser.Id = int.Parse(idTextBox.Text) ;
+            if (userStorage.UserExists(CurrentUser, Users))
             {
-                user = userStorage.ChooseUser(user.Id, Users);
-                firstNameTextBox.Text = user.FirstName;
-                lastNameTextBox.Text = user.LastName;
-                idTextBox.Text = user.Id.ToString();
+                CurrentUser = userStorage.ChooseUser(CurrentUser.Id, Users);
+                firstNameTextBox.Text = CurrentUser.FirstName;
+                lastNameTextBox.Text = CurrentUser.LastName;
+                idTextBox.Text = CurrentUser.Id.ToString();
                 MessageBox.Show("Пользователь по данному идентификатору выбран.");
             }
             else
@@ -116,5 +117,6 @@ namespace MusicLearner
                 MessageBox.Show("Данный пользователь не содержится в базе пользователей.");
             }
         }
+
     }
 }

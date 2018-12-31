@@ -10,12 +10,14 @@ using System.Windows.Forms;
 
 namespace MusicLearner
 {
-    public partial class Form1 : Form
+    public partial class MainMenu : Form
     {
-        public Form1()
+        public MainMenu()
         {
             InitializeComponent();
         }
+
+        public User User { get; set; }
 
         private void ExitButton_Click(object sender, EventArgs e)
         {
@@ -29,8 +31,9 @@ namespace MusicLearner
 
         private void userButton_Click(object sender, EventArgs e)
         {
-            UserForm userForm = new UserForm();
+            UserForm userForm = new UserForm(User);
             userForm.ShowDialog();
+            User = userForm.CurrentUser;
         }
     }
 }

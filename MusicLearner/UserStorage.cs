@@ -14,19 +14,6 @@ namespace MusicLearner
     {
         public UserStorage()
         {
-            //XDocument xDoc = new XDocument();
-            //XElement Users = new XElement("users");
-            //XElement zeroUser = new XElement("defaultuser");
-            //XAttribute userFirstName = new XAttribute("FirstName","");
-            //XAttribute userLastName = new XAttribute("LastName", "");
-            //XAttribute userId = new XAttribute("Id", "");
-            //zeroUser.Add(userFirstName);
-            //zeroUser.Add(userLastName);
-            //zeroUser.Add(userId);
-            //Users.Add(zeroUser);
-            //xDoc.Add(Users);
-            //xDoc.Save("users.xml");
-            //this.SaveUsers(users);
             users = this.LoadUsers();
         }
 
@@ -38,7 +25,6 @@ namespace MusicLearner
             {
                 formatter.Serialize(xmlWriter, users);
                 xmlWriter.Close();
-                this.users = users;
             }
         }
 
@@ -87,6 +73,11 @@ namespace MusicLearner
             users[userNumber].FirstName = newUser.FirstName;
             users[userNumber].LastName = newUser.LastName;
             return users;
+        }
+
+        public User GetUser(User user)
+        {
+            return user;
         }
     }
 }

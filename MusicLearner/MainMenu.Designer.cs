@@ -1,6 +1,6 @@
 ﻿namespace MusicLearner
 {
-    partial class Form1
+    partial class MainMenu
     {
         /// <summary>
         /// Обязательная переменная конструктора.
