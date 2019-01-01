@@ -17,6 +17,7 @@ namespace MusicLearner
             users = this.LoadUsers();
         }
 
+        string path = Directory.GetCurrentDirectory()+"\\UserData";
         XmlSerializer formatter = new XmlSerializer(typeof(List<User>));
         List<User> users = new List<User>();
         public void SaveUsers(List<User> users)
@@ -38,7 +39,7 @@ namespace MusicLearner
             return users;
         }
 
-        public bool UserExists(User user, List<User> users)
+        public bool UserExists(User user)
         {
             if (!users.Any())
             {
@@ -47,37 +48,37 @@ namespace MusicLearner
             return users.Any((u) => user.Id == u.Id);
         }
 
-        public List<User> AddUser(User user,List<User> users)
+        public List<User> AddUser(User user)
         {
             users.Add(user);
+            Directory.CreateDirectory(path+"\\"+user.FirstName+" "+user.LastName);
             return users;
         }
 
-        public List<User> DeleteUser (User user, List<User> users)
+        public List<User> DeleteUser (User user)
         {
             List<User> newUsers = users;
             newUsers.Remove(users.Find((u)=> user.Id==u.Id));
+            Directory.Delete(path + "\\" + user.FirstName + " " + user.LastName,true);
             return newUsers;
         }
 
-        public User ChooseUser(int userId, List<User> users)
+        public User ChooseUser(int userId)
         {
             User user = new User();
             user = users.Find((u)=>u.Id==userId);
             return user;
         }
 
-        public List<User> ChangeUserData(User newUser, List<User> users)
+        public List<User> ChangeUserData(User newUser)
         {
             int userNumber = users.FindIndex((u) => u.Id == newUser.Id);
+            //Directory.CreateDirectory(path+"\\"+ newUser.FirstName+" "+ newUser.LastName);
+            Directory.Move(path + "\\" + users[userNumber].FirstName + " " + users[userNumber].LastName, 
+                path + "\\" + newUser.FirstName + " " + newUser.LastName);
             users[userNumber].FirstName = newUser.FirstName;
             users[userNumber].LastName = newUser.LastName;
             return users;
-        }
-
-        public User GetUser(User user)
-        {
-            return user;
         }
     }
 }

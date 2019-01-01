@@ -14,7 +14,18 @@ namespace MusicLearner
     {
         public MainMenu()
         {
+            MessageBox.Show("Мурманский государственный технический университет" +
+                "\nКафедра математики, информационных систем и программного обеспечения" +
+                "\nКурсовая работа № 2 по дисциплине «Технологии программирования»" +
+                "\nТема курсовой работы" +
+                "\nАкопян Александр Айрапетович, ИСиТб17о");
             InitializeComponent();
+            if (User != null)
+            {
+                theoryButton.Enabled = false;
+                practiceButton.Enabled = false;
+                MessageBox.Show("Для доступа к теории и практике выберите или создайте пользователя.");
+            }
         }
 
         public User User { get; set; }
@@ -24,16 +35,31 @@ namespace MusicLearner
             this.Close();
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void practiceButton_Click(object sender, EventArgs e)
         {
-
+            PracticeForm practiceForm = new PracticeForm(User);
+            this.Hide();
+            practiceForm.ShowDialog();
+            this.Show();
         }
 
         private void userButton_Click(object sender, EventArgs e)
         {
-            UserForm userForm = new UserForm(User);
+            this.Hide();
+            UserForm userForm = new UserForm();
             userForm.ShowDialog();
-            User = userForm.CurrentUser;
+            if (userForm.сurrentUser != null)
+            {
+                User = userForm.сurrentUser;
+                theoryButton.Enabled = true;
+                practiceButton.Enabled = true;
+            }
+            else
+            {
+                MessageBox.Show("Пользователь не выбран." +
+                    "\nДоступ к теории и практике закрыт.");
+            }
+            this.Show();
         }
     }
 }

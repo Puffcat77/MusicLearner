@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="BassClef.cs" />
     <Compile Include="Clef.cs" />
+    <Compile Include="UserData.cs" />
     <Compile Include="UserForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -73,6 +74,9 @@
     <Compile Include="TrebleClef.cs" />
     <Compile Include="User.cs" />
     <Compile Include="UserStorage.cs" />
+    <EmbeddedResource Include="PracticeForm.resx">
+      <DependentUpon>PracticeForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserForm.resx">
       <DependentUpon>UserForm.cs</DependentUpon>
     </EmbeddedResource>

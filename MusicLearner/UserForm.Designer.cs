@@ -40,7 +40,7 @@
             // 
             // saveUserButton
             // 
-            this.saveUserButton.Location = new System.Drawing.Point(34, 182);
+            this.saveUserButton.Location = new System.Drawing.Point(122, 118);
             this.saveUserButton.Name = "saveUserButton";
             this.saveUserButton.Size = new System.Drawing.Size(170, 58);
             this.saveUserButton.TabIndex = 3;
@@ -68,7 +68,7 @@
             // 
             // deleteUserButton
             // 
-            this.deleteUserButton.Location = new System.Drawing.Point(386, 182);
+            this.deleteUserButton.Location = new System.Drawing.Point(298, 182);
             this.deleteUserButton.Name = "deleteUserButton";
             this.deleteUserButton.Size = new System.Drawing.Size(170, 58);
             this.deleteUserButton.TabIndex = 4;
@@ -97,7 +97,7 @@
             // 
             // chooseUserButton
             // 
-            this.chooseUserButton.Location = new System.Drawing.Point(210, 118);
+            this.chooseUserButton.Location = new System.Drawing.Point(298, 118);
             this.chooseUserButton.Name = "chooseUserButton";
             this.chooseUserButton.Size = new System.Drawing.Size(170, 58);
             this.chooseUserButton.TabIndex = 6;
@@ -107,7 +107,7 @@
             // 
             // changeUserDataButton
             // 
-            this.changeUserDataButton.Location = new System.Drawing.Point(210, 182);
+            this.changeUserDataButton.Location = new System.Drawing.Point(122, 182);
             this.changeUserDataButton.Name = "changeUserDataButton";
             this.changeUserDataButton.Size = new System.Drawing.Size(170, 58);
             this.changeUserDataButton.TabIndex = 7;

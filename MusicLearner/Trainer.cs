@@ -25,6 +25,8 @@ namespace MusicLearner
             ImageAndSound del = GetNoteImage;
         }
 
+
+
         private Clef MusicTrainer { get; set; }
         private char[] noteNumber = new char[] { 'A', 'B', 'C', 'D', 'E', 'F', 'G' };
         private char chosenNote;
