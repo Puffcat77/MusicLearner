@@ -8,7 +8,8 @@ using System.Xml;
 
 namespace MusicLearner
 {
-    class UserData
+    public
+        class UserData
     {
         public UserData()
         {
@@ -16,6 +17,6 @@ namespace MusicLearner
         }
         public uint CorrectAnswers { get; set; }
         public uint Questions { get; set; }
-        public DateTime TestDate { get; set; };
+        public DateTime TestDate { get; set; }
     }
 }

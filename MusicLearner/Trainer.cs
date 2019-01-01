@@ -8,7 +8,7 @@ using System.Media;
 namespace MusicLearner
 {
     delegate string ImageAndSound(char note);
-    class Trainer<T> where T:Clef, new()
+    public class Trainer<T> where T:Clef, new()
     {
         public Trainer(bool key)
         {
@@ -20,7 +20,6 @@ namespace MusicLearner
             {
                 MusicTrainer = new BassClef();
             }
-            
             correctNote = GetNoteToTrain();
             ImageAndSound del = GetNoteImage;
         }
@@ -29,12 +28,12 @@ namespace MusicLearner
 
         private Clef MusicTrainer { get; set; }
         private char[] noteNumber = new char[] { 'A', 'B', 'C', 'D', 'E', 'F', 'G' };
-        private char chosenNote;
         private char correctNote;
 
         public char GetNoteToTrain()
         {
-            return noteNumber[new Random(6).Next(6)];
+            int note = new Random().Next(0,6);
+            return noteNumber[note];
         }
 
         //public event NoteToTrainIsGotten()

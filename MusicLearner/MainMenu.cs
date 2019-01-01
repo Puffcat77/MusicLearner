@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace MusicLearner
 {
@@ -20,7 +21,7 @@ namespace MusicLearner
                 "\nТема курсовой работы" +
                 "\nАкопян Александр Айрапетович, ИСиТб17о");
             InitializeComponent();
-            if (User != null)
+            if (User == null)
             {
                 theoryButton.Enabled = false;
                 practiceButton.Enabled = false;
@@ -29,6 +30,7 @@ namespace MusicLearner
         }
 
         public User User { get; set; }
+        public string dataPath = Directory.GetCurrentDirectory();
 
         private void ExitButton_Click(object sender, EventArgs e)
         {
@@ -37,9 +39,10 @@ namespace MusicLearner
 
         private void practiceButton_Click(object sender, EventArgs e)
         {
-            PracticeForm practiceForm = new PracticeForm(User);
             this.Hide();
-            practiceForm.ShowDialog();
+            dataPath += "\\" + User.FirstName + " " + User.LastName;
+            PracticeSubMenu subMenu = new PracticeSubMenu(dataPath);
+            subMenu.ShowDialog();
             this.Show();
         }
 

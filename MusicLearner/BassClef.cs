@@ -6,17 +6,17 @@ using System.Threading.Tasks;
 
 namespace MusicLearner
 {
-    class BassClef:Clef
+    public class BassClef:Clef
     {
         public BassClef()
         {
-            Notes['A'].Image = "Theory\\Images\\BassNotes\\AInBass";
-            Notes['B'].Image = "Theory\\Images\\BassNotes\\BInBass";
-            Notes['C'].Image = "Theory\\Images\\BassNotes\\CInBass";
-            Notes['D'].Image = "Theory\\Images\\BassNotes\\DInBass";
-            Notes['E'].Image = "Theory\\Images\\BassNotes\\EInBass";
-            Notes['F'].Image = "Theory\\Images\\BassNotes\\FInBass";
-            Notes['G'].Image = "Theory\\Images\\BassNotes\\GInBass";
+            Notes['A'].Image = "Theory\\Images\\BassNotes\\AInBass.png";
+            Notes['B'].Image = "Theory\\Images\\BassNotes\\BInBass.png";
+            Notes['C'].Image = "Theory\\Images\\BassNotes\\CInBass.png";
+            Notes['D'].Image = "Theory\\Images\\BassNotes\\DInBass.png";
+            Notes['E'].Image = "Theory\\Images\\BassNotes\\EInBass.png";
+            Notes['F'].Image = "Theory\\Images\\BassNotes\\FInBass.png";
+            Notes['G'].Image = "Theory\\Images\\BassNotes\\GInBass.png";
             Notes['A'].Sound = "";
             Notes['B'].Sound = "";
             Notes['C'].Sound = "";

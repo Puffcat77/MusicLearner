@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MusicLearner
 {
-    class TheoryForm
+    public class TheoryForm
     {
     }
 }

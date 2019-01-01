@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MusicLearner
 {
-    abstract class Clef
+    public class Clef
     {
         public Clef()
         {

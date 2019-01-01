@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MusicLearner
 {
-    class Note
+    public class Note
     {
         public string Image { get; set; }
         public string Sound { get; set; }

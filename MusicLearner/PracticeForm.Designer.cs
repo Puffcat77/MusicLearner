@@ -28,20 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.notePictureBox = new System.Windows.Forms.PictureBox();
-            this.aButtton = new System.Windows.Forms.Button();
+            this.aButton = new System.Windows.Forms.Button();
             this.bButton = new System.Windows.Forms.Button();
             this.cButton = new System.Windows.Forms.Button();
             this.dButton = new System.Windows.Forms.Button();
             this.eButton = new System.Windows.Forms.Button();
             this.fButton = new System.Windows.Forms.Button();
             this.gButton = new System.Windows.Forms.Button();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.checkAnswerButton = new System.Windows.Forms.Button();
+            this.finishPracticeButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.notePictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -54,14 +50,15 @@
             this.notePictureBox.TabStop = false;
             this.notePictureBox.Click += new System.EventHandler(this.notePictureBox_Click);
             // 
-            // aButtton
+            // aButton
             // 
-            this.aButtton.Location = new System.Drawing.Point(48, 286);
-            this.aButtton.Name = "aButtton";
-            this.aButtton.Size = new System.Drawing.Size(80, 68);
-            this.aButtton.TabIndex = 1;
-            this.aButtton.Text = "A";
-            this.aButtton.UseVisualStyleBackColor = true;
+            this.aButton.Location = new System.Drawing.Point(48, 286);
+            this.aButton.Name = "aButton";
+            this.aButton.Size = new System.Drawing.Size(80, 68);
+            this.aButton.TabIndex = 1;
+            this.aButton.Text = "A";
+            this.aButton.UseVisualStyleBackColor = true;
+            this.aButton.Click += new System.EventHandler(this.aButtton_Click);
             // 
             // bButton
             // 
@@ -71,6 +68,7 @@
             this.bButton.TabIndex = 2;
             this.bButton.Text = "B";
             this.bButton.UseVisualStyleBackColor = true;
+            this.bButton.Click += new System.EventHandler(this.bButton_Click);
             // 
             // cButton
             // 
@@ -80,6 +78,7 @@
             this.cButton.TabIndex = 3;
             this.cButton.Text = "C";
             this.cButton.UseVisualStyleBackColor = true;
+            this.cButton.Click += new System.EventHandler(this.cButton_Click);
             // 
             // dButton
             // 
@@ -89,6 +88,7 @@
             this.dButton.TabIndex = 4;
             this.dButton.Text = "D";
             this.dButton.UseVisualStyleBackColor = true;
+            this.dButton.Click += new System.EventHandler(this.dButton_Click);
             // 
             // eButton
             // 
@@ -98,6 +98,7 @@
             this.eButton.TabIndex = 5;
             this.eButton.Text = "E";
             this.eButton.UseVisualStyleBackColor = true;
+            this.eButton.Click += new System.EventHandler(this.eButton_Click);
             // 
             // fButton
             // 
@@ -107,6 +108,7 @@
             this.fButton.TabIndex = 6;
             this.fButton.Text = "F";
             this.fButton.UseVisualStyleBackColor = true;
+            this.fButton.Click += new System.EventHandler(this.fButton_Click);
             // 
             // gButton
             // 
@@ -116,57 +118,42 @@
             this.gButton.TabIndex = 7;
             this.gButton.Text = "G";
             this.gButton.UseVisualStyleBackColor = true;
+            this.gButton.Click += new System.EventHandler(this.gButton_Click);
             // 
-            // progressBar1
+            // checkAnswerButton
             // 
-            this.progressBar1.Location = new System.Drawing.Point(48, 367);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(596, 23);
-            this.progressBar1.TabIndex = 8;
+            this.checkAnswerButton.Location = new System.Drawing.Point(414, 42);
+            this.checkAnswerButton.Name = "checkAnswerButton";
+            this.checkAnswerButton.Size = new System.Drawing.Size(205, 81);
+            this.checkAnswerButton.TabIndex = 9;
+            this.checkAnswerButton.Text = "Проверить ответ";
+            this.checkAnswerButton.UseVisualStyleBackColor = true;
+            this.checkAnswerButton.Click += new System.EventHandler(this.checkAnswerButton_Click);
             // 
-            // button1
+            // finishPracticeButton
             // 
-            this.button1.Location = new System.Drawing.Point(418, 105);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(158, 57);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "Проверить ответ";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(418, 42);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(158, 57);
-            this.button2.TabIndex = 10;
-            this.button2.Text = "A";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(418, 168);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(158, 57);
-            this.button3.TabIndex = 11;
-            this.button3.Text = "Завершить тестирование";
-            this.button3.UseVisualStyleBackColor = true;
+            this.finishPracticeButton.Location = new System.Drawing.Point(414, 175);
+            this.finishPracticeButton.Name = "finishPracticeButton";
+            this.finishPracticeButton.Size = new System.Drawing.Size(205, 81);
+            this.finishPracticeButton.TabIndex = 11;
+            this.finishPracticeButton.Text = "Завершить практику";
+            this.finishPracticeButton.UseVisualStyleBackColor = true;
+            this.finishPracticeButton.Click += new System.EventHandler(this.finishPracticeButton_Click);
             // 
             // PracticeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(793, 399);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.progressBar1);
+            this.ClientSize = new System.Drawing.Size(702, 399);
+            this.Controls.Add(this.finishPracticeButton);
+            this.Controls.Add(this.checkAnswerButton);
             this.Controls.Add(this.gButton);
             this.Controls.Add(this.fButton);
             this.Controls.Add(this.eButton);
             this.Controls.Add(this.dButton);
             this.Controls.Add(this.cButton);
             this.Controls.Add(this.bButton);
-            this.Controls.Add(this.aButtton);
+            this.Controls.Add(this.aButton);
             this.Controls.Add(this.notePictureBox);
             this.Name = "PracticeForm";
             this.Text = "PracticsForm";
@@ -178,17 +165,14 @@
         #endregion
 
         private System.Windows.Forms.PictureBox notePictureBox;
-        private System.Windows.Forms.Button aButtton;
+        private System.Windows.Forms.Button aButton;
         private System.Windows.Forms.Button bButton;
         private System.Windows.Forms.Button cButton;
         private System.Windows.Forms.Button dButton;
         private System.Windows.Forms.Button eButton;
         private System.Windows.Forms.Button fButton;
         private System.Windows.Forms.Button gButton;
-        private System.Windows.Forms.ProgressBar progressBar1;
-        private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button checkAnswerButton;
+        private System.Windows.Forms.Button finishPracticeButton;
     }
 }
