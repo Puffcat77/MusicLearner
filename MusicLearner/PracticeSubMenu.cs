@@ -22,7 +22,7 @@ namespace MusicLearner
         private void trebleClefButton_Click(object sender, EventArgs e)
         {
             this.Hide();
-            PracticeForm practiceForm = new PracticeForm(DataPath,true);
+            PracticeForm<TrebleClef> practiceForm = new PracticeForm<TrebleClef>(DataPath);
             practiceForm.ShowDialog();
             this.Show();
         }
@@ -30,7 +30,7 @@ namespace MusicLearner
         private void bassClefButton_Click(object sender, EventArgs e)
         {
             this.Hide();
-            PracticeForm practiceForm = new PracticeForm(DataPath,false);
+            PracticeForm<BassClef> practiceForm = new PracticeForm<BassClef>(DataPath);
             practiceForm.ShowDialog();
             this.Show();
         }

@@ -1,6 +1,6 @@
 ﻿namespace MusicLearner
 {
-    partial class PracticeForm
+    partial class PracticeForm<TClef>  where TClef: Clef, new()
     {
         /// <summary>
         /// Required designer variable.
@@ -68,7 +68,7 @@
             this.bButton.TabIndex = 2;
             this.bButton.Text = "B";
             this.bButton.UseVisualStyleBackColor = true;
-            this.bButton.Click += new System.EventHandler(this.bButton_Click);
+            this.bButton.Click += new System.EventHandler(this.aButtton_Click);
             // 
             // cButton
             // 
@@ -78,7 +78,7 @@
             this.cButton.TabIndex = 3;
             this.cButton.Text = "C";
             this.cButton.UseVisualStyleBackColor = true;
-            this.cButton.Click += new System.EventHandler(this.cButton_Click);
+            this.cButton.Click += new System.EventHandler(this.aButtton_Click);
             // 
             // dButton
             // 
@@ -88,7 +88,7 @@
             this.dButton.TabIndex = 4;
             this.dButton.Text = "D";
             this.dButton.UseVisualStyleBackColor = true;
-            this.dButton.Click += new System.EventHandler(this.dButton_Click);
+            this.dButton.Click += new System.EventHandler(this.aButtton_Click);
             // 
             // eButton
             // 
@@ -98,7 +98,7 @@
             this.eButton.TabIndex = 5;
             this.eButton.Text = "E";
             this.eButton.UseVisualStyleBackColor = true;
-            this.eButton.Click += new System.EventHandler(this.eButton_Click);
+            this.eButton.Click += new System.EventHandler(this.aButtton_Click);
             // 
             // fButton
             // 
@@ -108,7 +108,7 @@
             this.fButton.TabIndex = 6;
             this.fButton.Text = "F";
             this.fButton.UseVisualStyleBackColor = true;
-            this.fButton.Click += new System.EventHandler(this.fButton_Click);
+            //this.fButton.Click += new System.EventHandler(this.fButton_Click);
             // 
             // gButton
             // 
@@ -118,7 +118,7 @@
             this.gButton.TabIndex = 7;
             this.gButton.Text = "G";
             this.gButton.UseVisualStyleBackColor = true;
-            this.gButton.Click += new System.EventHandler(this.gButton_Click);
+            //this.gButton.Click += new System.EventHandler(this.gButton_Click);
             // 
             // checkAnswerButton
             // 

@@ -11,22 +11,30 @@ using System.IO;
 
 namespace MusicLearner
 {
-    public partial class PracticeForm : Form
+    public partial class PracticeForm<TClef> : Form where TClef : Clef, new()
     {
-        public PracticeForm(string dataPath, bool key)
+        public PracticeForm(string dataPath)
         {
             InitializeComponent();
             DataPath = dataPath;
             Buttons = new Button[] { aButton, bButton, cButton, dButton, eButton, fButton, gButton };
-            Trainer = new Trainer<Clef>(key);
+            //Trainer = new Trainer<TrebleClef>();
+            Trainer = new Trainer<TClef>();
             CurrentNote = Trainer.GetNoteToTrain();
             notePictureBox.ImageLocation = Trainer.GetNoteImage(CurrentNote);
+            var notesSigns = Trainer.Clef.Notes.Select((n)=> n.Key).ToList();
+            for (int i = 0; i < notesSigns.Count; i++)
+            {
+                Buttons[i].Text = notesSigns[i].ToString();
+                Buttons[i].Tag = notesSigns[i];
+            }
+            
         }
 
         
         public Button[] Buttons { get; set; }
         public string DataPath { get; set; }
-        public Trainer<Clef> Trainer { get; set; }
+        public Trainer<TClef> Trainer { get; set; }
         internal char CurrentNote { get; set; }
         internal char ChosenNote { get; set; }
         private void notePictureBox_Click(object sender, EventArgs e)
@@ -36,38 +44,40 @@ namespace MusicLearner
 
         private void aButtton_Click(object sender, EventArgs e)
         {
-            ChosenNote = 'A';
+            var button = (sender as Button);
+
+            ChosenNote = (char)button.Tag;
         }
 
-        private void bButton_Click(object sender, EventArgs e)
-        {
-            ChosenNote = 'B';
-        }
+        //private void bButton_Click(object sender, EventArgs e)
+        //{
+        //    ChosenNote = 'B';
+        //}
 
-        private void cButton_Click(object sender, EventArgs e)
-        {
-            ChosenNote = 'C';
-        }
+        //private void cButton_Click(object sender, EventArgs e)
+        //{
+        //    ChosenNote = 'C';
+        //}
 
-        private void dButton_Click(object sender, EventArgs e)
-        {
-            ChosenNote = 'D';
-        }
+        //private void dButton_Click(object sender, EventArgs e)
+        //{
+        //    ChosenNote = 'D';
+        //}
 
-        private void eButton_Click(object sender, EventArgs e)
-        {
-            ChosenNote = 'E';
-        }
+        //private void eButton_Click(object sender, EventArgs e)
+        //{
+        //    ChosenNote = 'E';
+        //}
 
-        private void fButton_Click(object sender, EventArgs e)
-        {
-            ChosenNote = 'F';
-        }
+        //private void fButton_Click(object sender, EventArgs e)
+        //{
+        //    ChosenNote = 'F';
+        //}
 
-        private void gButton_Click(object sender, EventArgs e)
-        {
-            ChosenNote = 'G';
-        }
+        //private void gButton_Click(object sender, EventArgs e)
+        //{
+        //    ChosenNote = 'G';
+        //}
 
         private void checkAnswerButton_Click(object sender, EventArgs e)
         {

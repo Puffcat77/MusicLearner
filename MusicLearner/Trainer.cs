@@ -8,43 +8,51 @@ using System.Media;
 namespace MusicLearner
 {
     delegate string ImageAndSound(char note);
+
+   
     public class Trainer<T> where T:Clef, new()
     {
-        public Trainer(bool key)
+        public Trainer()
         {
-            if (key)
-            {
-                MusicTrainer = new TrebleClef();
-            }
-            else
-            {
-                MusicTrainer = new BassClef();
-            }
+            //if (key)
+            //{
+            //    MusicTrainer = new TrebleClef();
+            //}
+            //else
+            //{
+            //    MusicTrainer = new BassClef();
+            //}
+            //correctNote = GetNoteToTrain();
+            //ImageAndSound del = GetNoteImage;
+
+            Clef = new T();
             correctNote = GetNoteToTrain();
-            ImageAndSound del = GetNoteImage;
         }
 
 
-
-        private Clef MusicTrainer { get; set; }
-        private char[] noteNumber = new char[] { 'A', 'B', 'C', 'D', 'E', 'F', 'G' };
+        private Random random = new Random();
+        public T Clef { get; }
+        //private char[] noteNumber = new char[] { 'A', 'B', 'C', 'D', 'E', 'F', 'G' };
         private char correctNote;
 
         public char GetNoteToTrain()
         {
-            int note = new Random().Next(0,6);
-            return noteNumber[note];
+            int note = random.Next(0,6);
+            return Clef.Notes
+                .Select(n => n.Key)
+                .ToArray()[note];
+            //return noteNumber[note];
         }
 
         //public event NoteToTrainIsGotten()
         public string GetNoteImage(char note)
         {
-            return MusicTrainer.Notes[note].Image;
+            return Clef.Notes[note].Image;
         }
 
         public void PlayNote(char note)
         {
-            SoundPlayer soundPlayer= new SoundPlayer(MusicTrainer.Notes[note].Sound);
+            SoundPlayer soundPlayer= new SoundPlayer(Clef.Notes[note].Sound);
             soundPlayer.Play();
         }
     }
