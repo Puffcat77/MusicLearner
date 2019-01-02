@@ -10,13 +10,13 @@ namespace MusicLearner
     {
         public TrebleClef()
         {
-            Notes['A'].Image = "Theory\\Images\\TrebelNotes\\AInTreble.png";
-            Notes['B'].Image = "Theory\\Images\\TrebelNotes\\BInTreble.png";
-            Notes['C'].Image = "Theory\\Images\\TrebelNotes\\CInTreble.png";
-            Notes['D'].Image = "Theory\\Images\\TrebelNotes\\DInTreble.png";
-            Notes['E'].Image = "Theory\\Images\\TrebelNotes\\EInTreble.png";
-            Notes['F'].Image = "Theory\\Images\\TrebelNotes\\FInTreble.png";
-            Notes['G'].Image = "Theory\\Images\\TrebelNotes\\GInTreble.png";
+            Notes['A'].Image = "Images\\Trebel\\AInTreble.png";
+            Notes['B'].Image = "Images\\Trebel\\BInTreble.png";
+            Notes['C'].Image = "Images\\Trebel\\CInTreble.png";
+            Notes['D'].Image = "Images\\Trebel\\DInTreble.png";
+            Notes['E'].Image = "Images\\Trebel\\EInTreble.png";
+            Notes['F'].Image = "Images\\Trebel\\FInTreble.png";
+            Notes['G'].Image = "Images\\Trebel\\GInTreble.png";
             Notes['A'].Sound = "";
             Notes['B'].Sound = "";
             Notes['C'].Sound = "";

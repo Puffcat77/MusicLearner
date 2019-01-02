@@ -10,13 +10,13 @@ namespace MusicLearner
     {
         public BassClef()
         {
-            Notes['A'].Image = "Theory\\Images\\BassNotes\\AInBass.png";
-            Notes['B'].Image = "Theory\\Images\\BassNotes\\BInBass.png";
-            Notes['C'].Image = "Theory\\Images\\BassNotes\\CInBass.png";
-            Notes['D'].Image = "Theory\\Images\\BassNotes\\DInBass.png";
-            Notes['E'].Image = "Theory\\Images\\BassNotes\\EInBass.png";
-            Notes['F'].Image = "Theory\\Images\\BassNotes\\FInBass.png";
-            Notes['G'].Image = "Theory\\Images\\BassNotes\\GInBass.png";
+            Notes['A'].Image = "Images\\Bass\\AInBass.png";
+            Notes['B'].Image = "Images\\Bass\\BInBass.png";
+            Notes['C'].Image = "Images\\Bass\\CInBass.png";
+            Notes['D'].Image = "Images\\Bass\\DInBass.png";
+            Notes['E'].Image = "Images\\Bass\\EInBass.png";
+            Notes['F'].Image = "Images\\Bass\\FInBass.png";
+            Notes['G'].Image = "Images\\Bass\\GInBass.png";
             Notes['A'].Sound = "";
             Notes['B'].Sound = "";
             Notes['C'].Sound = "";
