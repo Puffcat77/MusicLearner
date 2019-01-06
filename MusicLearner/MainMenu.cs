@@ -36,7 +36,7 @@ namespace MusicLearner
         {
             this.Hide();
             dataPath.Append("\\" + User.FirstName + " " + User.LastName);
-            PracticeSubMenu subMenu = new PracticeSubMenu(dataPath);
+            PracticeSubMenu subMenu = new PracticeSubMenu(User);
             subMenu.ShowDialog();
             this.Show();
         }

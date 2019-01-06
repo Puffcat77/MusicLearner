@@ -12,18 +12,17 @@ namespace MusicLearner
 {
     public partial class PracticeSubMenu : Form
     {
-        public PracticeSubMenu(StringBuilder dataPath)
+        public PracticeSubMenu(User user)
         {
             InitializeComponent();
-            DataPath = dataPath;
+            User = user;
         }
 
-        public StringBuilder DataPath { get; set; }
+        public User User { get; set; }
         private void trebleClefButton_Click(object sender, EventArgs e)
         {
             this.Hide();
-            DataPath.Append("\\Скрипичный ключ\\" + "UserData.xml");
-            PracticeForm<TrebleClef> practiceForm = new PracticeForm<TrebleClef>(DataPath);
+            PracticeForm<TrebleClef> practiceForm = new PracticeForm<TrebleClef>(User);
             practiceForm.ShowDialog();
             this.Show();
         }
@@ -31,8 +30,7 @@ namespace MusicLearner
         private void bassClefButton_Click(object sender, EventArgs e)
         {
             this.Hide();
-            DataPath.Append("\\Басовый ключ\\" + "UserData.xml");
-            PracticeForm<BassClef> practiceForm = new PracticeForm<BassClef>(DataPath);
+            PracticeForm<BassClef> practiceForm = new PracticeForm<BassClef>(User);
             practiceForm.ShowDialog();
             this.Show();
         }

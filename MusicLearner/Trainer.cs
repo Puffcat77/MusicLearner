@@ -26,7 +26,7 @@ namespace MusicLearner
         public int TotalQuestions { get; private set; }
         public int CorrectAnswers { get; private set; }
         public int BestQueue { get; private set; }
-        private int currentSuccesQueue = 0;
+        private int currentSuccessQueue = 0;
         //public void SaveUserData(StringBuilder dataPath)
         //{
         //    using (var xmlWriter = XmlWriter.Create(dataPath))
@@ -86,14 +86,15 @@ namespace MusicLearner
             var isNoteValid = note == CurrentNote;
             if (isNoteValid)
             {
-                currentSuccesQueue += 1;
+                currentSuccessQueue += 1;
                 CorrectAnswers += 1;
             }
             else
             {
-                BestQueue = BestQueue > currentSuccesQueue
+                BestQueue = BestQueue > currentSuccessQueue
                             ? BestQueue
-                            : currentSuccesQueue;
+                            : currentSuccessQueue;
+                currentSuccessQueue = 0;
             }
             OnAnswerApplied?.Invoke(this, new NoteEventArgs() { Note = note, IsNotValid = isNoteValid });
         }

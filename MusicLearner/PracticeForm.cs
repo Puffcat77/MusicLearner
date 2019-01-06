@@ -13,12 +13,11 @@ namespace MusicLearner
 {
     public partial class PracticeForm<TClef> : Form where TClef : Clef, new()
     {
-        public PracticeForm(StringBuilder dataPath)
+        public PracticeForm(User user)
         {
             InitializeComponent();
             Buttons = new Button[] { aButton, bButton, cButton, dButton, eButton, fButton, gButton };
             Trainer = new Trainer<TClef>();
-            
             Trainer.OnNoteGenerated += OnNoteGenerated;
             Trainer.OnAnswerApplied += OnAnswerApplied;
             Trainer.StartTrain();
@@ -27,8 +26,10 @@ namespace MusicLearner
                 Buttons[i].Text = Trainer.Clef[i].Symbol.ToString();
                 Buttons[i].Tag = Trainer.Clef[i];
             }
+            this.user = user;
         }
 
+        User user = new User();
         private void OnNoteGenerated(object sender, NoteEventArgs e)
         {
             notePictureBox.ImageLocation = e.Note.Image;
@@ -67,6 +68,13 @@ namespace MusicLearner
             //Trainer.userData.Questions--;
             //Trainer.AddData(Trainer.userData);
             //Trainer.SaveUserData(Trainer.DataPath);
+            UserProgressStorage userProgressStorage = new UserProgressStorage(user,typeof(TClef).Name);
+            userProgressStorage.AddUserProgress(new UserProgress()
+            {   TestDate = DateTime.Today,
+                CorrectAnswers = Trainer.CorrectAnswers,
+                BestQueue = Trainer.BestQueue,
+                Questions = Trainer.TotalQuestions });
+            userProgressStorage.SaveProgress();
             this.Close();
         }
     }
