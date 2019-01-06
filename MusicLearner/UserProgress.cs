@@ -8,13 +8,8 @@ using System.Xml;
 
 namespace MusicLearner
 {
-    public
-        class UserData
+    public class UserProgress
     {
-        public UserData()
-        {
-            this.TestDate = DateTime.Today;
-        }
         public uint CorrectAnswers { get; set; }
         public uint Questions { get; set; }
         public DateTime TestDate { get; set; }

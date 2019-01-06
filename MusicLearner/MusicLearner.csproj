@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="BassClef.cs" />
     <Compile Include="Clef.cs" />
+    <Compile Include="NoteEventArgs.cs" />
     <Compile Include="PracticeSubMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -59,7 +60,7 @@
     <Compile Include="ProgramInfoForm.Designer.cs">
       <DependentUpon>ProgramInfoForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserData.cs" />
+    <Compile Include="UserProgress.cs" />
     <Compile Include="UserForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -85,6 +86,7 @@
     <Compile Include="Trainer.cs" />
     <Compile Include="TrebleClef.cs" />
     <Compile Include="User.cs" />
+    <Compile Include="UserProgressStorage.cs" />
     <Compile Include="UserStorage.cs" />
     <EmbeddedResource Include="PracticeForm.resx">
       <DependentUpon>PracticeForm.cs</DependentUpon>

@@ -17,61 +17,56 @@ namespace MusicLearner
         {
             InitializeComponent();
             Buttons = new Button[] { aButton, bButton, cButton, dButton, eButton, fButton, gButton };
-            Trainer = new Trainer<TClef>(dataPath);
-            CurrentNote = Trainer.GetNoteToTrain();
-            notePictureBox.ImageLocation = Trainer.GetNoteImage(CurrentNote);
-            var notesSigns = Trainer.Clef.Notes.Select((n)=> n.Key).ToList();
-            for (int i = 0; i < notesSigns.Count; i++)
+            Trainer = new Trainer<TClef>();
+            
+            Trainer.OnNoteGenerated += OnNoteGenerated;
+            Trainer.OnAnswerApplied += OnAnswerApplied;
+            Trainer.StartTrain();
+            for (int i = 0; i < Trainer.Clef.Notes.Count; i++)
             {
-                Buttons[i].Text = notesSigns[i].ToString();
-                Buttons[i].Tag = notesSigns[i];
+                Buttons[i].Text = Trainer.Clef[i].Symbol.ToString();
+                Buttons[i].Tag = Trainer.Clef[i];
             }
         }
 
-        
+        private void OnNoteGenerated(object sender, NoteEventArgs e)
+        {
+            notePictureBox.ImageLocation = e.Note.Image;
+        }
+
+
         public Button[] Buttons { get; set; }
         public Trainer<TClef> Trainer { get; set; }
-        internal char CurrentNote { get; set; }
-        internal char ChosenNote { get; set; }
-        UserData data = new UserData();
-        private void notePictureBox_Click(object sender, EventArgs e)
-        {
+       
+        UserProgress data = new UserProgress();
 
-        }
 
         private void noteButton_Click(object sender, EventArgs e)
         {
             var button = (sender as Button);
-            ChosenNote = (char)button.Tag;
+            Trainer.ApplyAnswer(button.Tag as Note);
         }
 
-        private void checkAnswerButton_Click(object sender, EventArgs e)
+        private void OnAnswerApplied(object sender, NoteEventArgs e)
         {
-            if (ChosenNote == CurrentNote)
+            if (e.IsNotValid)
             {
-                Trainer.userData.CorrectAnswers++;
-                Trainer.userData.Queue++;
                 MessageBox.Show("Ответ правильный.");
             }
             else
             {
-                if (Trainer.userData.BestQueue < Trainer.userData.Queue)
-                {
-                    Trainer.userData.BestQueue = Trainer.userData.Queue;
-                }
-                Trainer.userData.Queue = 0;
-                MessageBox.Show("Ответ неверный. Правильный ответ - нота "+CurrentNote);
+                MessageBox.Show("Ответ неверный. Правильный ответ - нота " + Trainer.CurrentNote.Symbol);
             }
-            Trainer.userData.Questions++;
-            CurrentNote = Trainer.GetNoteToTrain();
-            notePictureBox.ImageLocation = Trainer.GetNoteImage(CurrentNote);
+            //Trainer.userData.Questions++;
+            Trainer.GenerateNote();
         }
+
 
         private void finishPracticeButton_Click(object sender, EventArgs e)
         {
             //Trainer.userData.Questions--;
-            Trainer.AddData(Trainer.userData);
-            Trainer.SaveUserData(Trainer.DataPath);
+            //Trainer.AddData(Trainer.userData);
+            //Trainer.SaveUserData(Trainer.DataPath);
             this.Close();
         }
     }

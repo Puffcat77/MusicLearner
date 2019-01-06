@@ -10,20 +10,20 @@ namespace MusicLearner
     {
         public TrebleClef()
         {
-            Notes['A'].Image = "Images\\Trebel\\AInTreble.png";
-            Notes['B'].Image = "Images\\Trebel\\BInTreble.png";
-            Notes['C'].Image = "Images\\Trebel\\CInTreble.png";
-            Notes['D'].Image = "Images\\Trebel\\DInTreble.png";
-            Notes['E'].Image = "Images\\Trebel\\EInTreble.png";
-            Notes['F'].Image = "Images\\Trebel\\FInTreble.png";
-            Notes['G'].Image = "Images\\Trebel\\GInTreble.png";
-            Notes['A'].Sound = "";
-            Notes['B'].Sound = "";
-            Notes['C'].Sound = "";
-            Notes['D'].Sound = "";
-            Notes['E'].Sound = "";
-            Notes['F'].Sound = "";
-            Notes['G'].Sound = "";
+            this['A'].Image = "Images\\Trebel\\AInTreble.png";
+            this['B'].Image = "Images\\Trebel\\BInTreble.png";
+            this['C'].Image = "Images\\Trebel\\CInTreble.png";
+            this['D'].Image = "Images\\Trebel\\DInTreble.png";
+            this['E'].Image = "Images\\Trebel\\EInTreble.png";
+            this['F'].Image = "Images\\Trebel\\FInTreble.png";
+            this['G'].Image = "Images\\Trebel\\GInTreble.png";
+            this['A'].Sound = "";
+            this['B'].Sound = "";
+            this['C'].Sound = "";
+            this['D'].Sound = "";
+            this['E'].Sound = "";
+            this['F'].Sound = "";
+            this['G'].Sound = "";
             Oktaves = 4;
         }
     }

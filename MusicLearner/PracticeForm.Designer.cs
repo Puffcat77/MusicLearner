@@ -117,6 +117,7 @@
             this.gButton.TabIndex = 7;
             this.gButton.Text = "G";
             this.gButton.UseVisualStyleBackColor = true;
+            this.gButton.Click += new System.EventHandler(this.noteButton_Click);
             // 
             // checkAnswerButton
             // 
@@ -126,7 +127,7 @@
             this.checkAnswerButton.TabIndex = 9;
             this.checkAnswerButton.Text = "Проверить ответ";
             this.checkAnswerButton.UseVisualStyleBackColor = true;
-            this.checkAnswerButton.Click += new System.EventHandler(this.checkAnswerButton_Click);
+            
             // 
             // finishPracticeButton
             // 

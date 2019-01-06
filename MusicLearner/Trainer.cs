@@ -11,101 +11,102 @@ using System.IO;
 
 namespace MusicLearner
 {
-    delegate string ImageAndSound(char note);
-
-   
     public class Trainer<T> where T:Clef, new()
     {
-        public Trainer(StringBuilder dataPath)
+        public Trainer()
         {
             Clef = new T();
-            DataPath = dataPath;
-            if (!File.Exists(dataPath.ToString()))
-            {
-                this.SaveUserData(dataPath); 
-            }
-            Data = this.LoadUserData(dataPath.ToString());
+
         }
 
-        public UserData userData = new UserData()
-        {
-            CorrectAnswers = 0,
-            Questions = 0,
-            BestQueue = 0,
-            Queue = 0,
-        };
-        public List<UserData> Data { get; set; }
-        public StringBuilder DataPath { get; set; }
 
         private Random random = new Random();
-
-        XmlSerializer formatter = new XmlSerializer(typeof(List<UserData>));
+        public Note CurrentNote { get; set; }
         public T Clef { get; }
+        public int TotalQuestions { get; private set; }
+        public int CorrectAnswers { get; private set; }
+        public int BestQueue { get; private set; }
+        private int currentSuccesQueue = 0;
+        //public void SaveUserData(StringBuilder dataPath)
+        //{
+        //    using (var xmlWriter = XmlWriter.Create(dataPath))
+        //    {
+        //        formatter.Serialize(xmlWriter, Data);
+        //        xmlWriter.Close();
+        //    }
+        //}
 
-        public void SaveUserData(StringBuilder dataPath)
+        //public List<UserData> LoadUserData(string dataPath)
+        //{
+        //    List<UserData> data;
+        //    using (var xmlReader = XmlReader.Create(dataPath))
+        //    {
+        //        data = (List<UserData>)formatter.Deserialize(xmlReader);
+        //        xmlReader.Close();
+        //    }
+        //    return data;
+        //}
+
+        //public void AddData(UserData newData)
+        //{
+        //    if (Data.Count == 0)
+        //    {
+        //        Data.Add(newData);
+        //    }
+        //    else
+        //    {
+        //        if (Data.Find(d => d.TestDate == newData.TestDate) != null)
+        //        {
+        //            UserData oldData = Data.Find(d => d.TestDate == newData.TestDate);
+        //            oldData.CorrectAnswers += newData.CorrectAnswers;
+        //            oldData.Questions += newData.Questions;
+        //            if (oldData.BestQueue < newData.BestQueue)
+        //            {
+        //                oldData.BestQueue = newData.BestQueue;
+        //            }
+        //        }
+        //        else
+        //        {
+        //            Data.Add(newData);
+        //        }
+        //    }
+        //}
+        public Note GenerateNote()
         {
-            using (var xmlWriter = XmlWriter.Create(dataPath))
-            {
-                formatter.Serialize(xmlWriter, Data);
-                xmlWriter.Close();
-            }
+            int noteIndex = random.Next(0,6);
+
+            CurrentNote = Clef.Notes[noteIndex];
+            OnNoteGenerated?.Invoke(this, new NoteEventArgs() { Note = CurrentNote });
+            return CurrentNote;
         }
 
-        public List<UserData> LoadUserData(string dataPath)
+        public void ApplyAnswer(Note note)
         {
-            List<UserData> data;
-            using (var xmlReader = XmlReader.Create(dataPath))
+            TotalQuestions += 1;
+            var isNoteValid = note == CurrentNote;
+            if (isNoteValid)
             {
-                data = (List<UserData>)formatter.Deserialize(xmlReader);
-                xmlReader.Close();
-            }
-            return data;
-        }
-
-        public void AddData(UserData newData)
-        {
-            if (Data.Count == 0)
-            {
-                Data.Add(newData);
+                currentSuccesQueue += 1;
+                CorrectAnswers += 1;
             }
             else
             {
-                if (Data.Find(d => d.TestDate == newData.TestDate) != null)
-                {
-                    UserData oldData = Data.Find(d => d.TestDate == newData.TestDate);
-                    oldData.CorrectAnswers += newData.CorrectAnswers;
-                    oldData.Questions += newData.Questions;
-                    if (oldData.BestQueue < newData.BestQueue)
-                    {
-                        oldData.BestQueue = newData.BestQueue;
-                    }
-                }
-                else
-                {
-                    Data.Add(newData);
-                }
+                BestQueue = BestQueue > currentSuccesQueue
+                            ? BestQueue
+                            : currentSuccesQueue;
             }
+            OnAnswerApplied?.Invoke(this, new NoteEventArgs() { Note = note, IsNotValid = isNoteValid });
         }
-        public char GetNoteToTrain()
+
+
+        public void StartTrain()
         {
-            int note = random.Next(0,6);
-            return Clef.Notes
-                .Select(n => n.Key)
-                .ToArray()[note];
+            GenerateNote();
         }
 
-        //public event NoteToTrainIsGotten()
-        public string GetNoteImage(char note)
-        {
-            return Clef.Notes[note].Image;
-        }
+        public event EventHandler<NoteEventArgs> OnNoteGenerated;
 
-        //public void PlayNote(char note)
-        //{
-        //    SoundPlayer soundPlayer= new SoundPlayer(Clef.Notes[note].Sound);
-        //    soundPlayer.Play();
-        //}
-
+        public event EventHandler<NoteEventArgs> OnAnswerApplied;
 
     }
 }

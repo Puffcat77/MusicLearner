@@ -8,6 +8,7 @@ namespace MusicLearner
 {
     public class Note
     {
+        public char Symbol { get; set; }
         public string Image { get; set; }
         public string Sound { get; set; }
     }
