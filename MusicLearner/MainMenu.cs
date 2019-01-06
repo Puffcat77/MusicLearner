@@ -25,7 +25,7 @@ namespace MusicLearner
         }
 
         public User User { get; set; }
-        public string dataPath = Directory.GetCurrentDirectory();
+        public StringBuilder dataPath = new StringBuilder(Directory.GetCurrentDirectory());
 
         private void ExitButton_Click(object sender, EventArgs e)
         {
@@ -35,7 +35,7 @@ namespace MusicLearner
         private void practiceButton_Click(object sender, EventArgs e)
         {
             this.Hide();
-            dataPath += "\\" + User.FirstName + " " + User.LastName;
+            dataPath.Append("\\" + User.FirstName + " " + User.LastName);
             PracticeSubMenu subMenu = new PracticeSubMenu(dataPath);
             subMenu.ShowDialog();
             this.Show();

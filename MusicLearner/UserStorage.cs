@@ -14,14 +14,11 @@ namespace MusicLearner
     {
         public UserStorage()
         {
-            if (File.Exists("users.xml"))
-            {
-                users = this.LoadUsers();
-            }
-            else
+            if (!File.Exists("users.xml"))
             {
                 this.SaveUsers(users);
             }
+            users = this.LoadUsers();
         }
 
         string path = Directory.GetCurrentDirectory()+"\\UserData";
@@ -80,7 +77,6 @@ namespace MusicLearner
         public List<User> ChangeUserData(User newUser)
         {
             int userNumber = users.FindIndex((u) => u.Id == newUser.Id);
-            //Directory.CreateDirectory(path+"\\"+ newUser.FirstName+" "+ newUser.LastName);
             Directory.Move(path + "\\" + users[userNumber].FirstName + " " + users[userNumber].LastName, 
                 path + "\\" + newUser.FirstName + " " + newUser.LastName);
             users[userNumber].FirstName = newUser.FirstName;

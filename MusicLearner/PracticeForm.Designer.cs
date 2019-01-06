@@ -48,7 +48,6 @@
             this.notePictureBox.Size = new System.Drawing.Size(307, 214);
             this.notePictureBox.TabIndex = 0;
             this.notePictureBox.TabStop = false;
-            this.notePictureBox.Click += new System.EventHandler(this.notePictureBox_Click);
             // 
             // aButton
             // 
