@@ -39,10 +39,10 @@ namespace MusicLearner
             {
                 user.Id = int.Parse(idTextBox.Text);
             }
-            catch (FormatException)
+            catch (Exception)
             {
                 MessageBox.Show("Вы ввели неверный числовой идентификатор." +
-                    "\n Числовой идентификатор - число от -2147483648 до 2147483647.");
+                    "\nЧисловой идентификатор - число от -2147483648 до 2147483647.");
                 return;
             }
             if (userStorage.UserExists(user))
@@ -69,10 +69,10 @@ namespace MusicLearner
             {
                 user.Id = int.Parse(idTextBox.Text);
             }
-            catch (FormatException)
+            catch (Exception)
             {
                 MessageBox.Show("Неверный числовой идентификатор." +
-                    "\n Числовой идентификатор - должен быть числом от -2147483648 до 2147483647.");
+                    "\nЧисловой идентификатор - должен быть числом от -2147483648 до 2147483647.");
                 return;
             }
             if (!userStorage.UserExists(user))
@@ -97,7 +97,16 @@ namespace MusicLearner
 
         private void chooseUserButton_Click(object sender, EventArgs e)
         {
-            сurrentUser.Id = int.Parse(idTextBox.Text) ;
+            try
+            {
+                сurrentUser.Id = int.Parse(idTextBox.Text);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Вы ввели неверный числовой идентификатор." +
+                    "\n Числовой идентификатор - число от -2147483648 до 2147483647.");
+                return;
+            }
             if (userStorage.UserExists(сurrentUser))
             {
                 сurrentUser = userStorage.ChooseUser(сurrentUser.Id);
@@ -114,12 +123,19 @@ namespace MusicLearner
 
         private void changeUserDataButton_Click(object sender, EventArgs e)
         {
-            User user = new User
+            User user = new User();
+            user.FirstName = firstNameTextBox.Text;
+            user.LastName = lastNameTextBox.Text;
+            try
             {
-                FirstName = firstNameTextBox.Text,
-                LastName = lastNameTextBox.Text,
-                Id = int.Parse(idTextBox.Text)
-            };
+                user.Id = int.Parse(idTextBox.Text);
+            }
+            catch(Exception)
+            {
+                MessageBox.Show("Вы ввели неверный числовой идентификатор." +
+                    "\nЧисловой идентификатор - число от -2147483648 до 2147483647.");
+                return;
+            }
             if (userStorage.UserExists(user))
             {
                 Users = userStorage.ChangeUserData(user);

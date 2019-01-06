@@ -15,11 +15,6 @@ namespace MusicLearner
     {
         public MainMenu()
         {
-            MessageBox.Show("Мурманский государственный технический университет" +
-                "\nКафедра математики, информационных систем и программного обеспечения" +
-                "\nКурсовая работа № 2 по дисциплине «Технологии программирования»" +
-                "\nТема курсовой работы" +
-                "\nАкопян Александр Айрапетович, ИСиТб17о");
             InitializeComponent();
             if (User == null)
             {
@@ -62,6 +57,14 @@ namespace MusicLearner
                 MessageBox.Show("Пользователь не выбран." +
                     "\nДоступ к теории и практике закрыт.");
             }
+            this.Show();
+        }
+
+        private void programInfoButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            ProgramInfoForm programInfoForm = new ProgramInfoForm();
+            programInfoForm.ShowDialog();
             this.Show();
         }
     }

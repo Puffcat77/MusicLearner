@@ -14,17 +14,6 @@ namespace MusicLearner
     {
         public Trainer()
         {
-            //if (key)
-            //{
-            //    MusicTrainer = new TrebleClef();
-            //}
-            //else
-            //{
-            //    MusicTrainer = new BassClef();
-            //}
-            //correctNote = GetNoteToTrain();
-            //ImageAndSound del = GetNoteImage;
-
             Clef = new T();
             correctNote = GetNoteToTrain();
         }
@@ -32,8 +21,8 @@ namespace MusicLearner
 
         private Random random = new Random();
         public T Clef { get; }
-        //private char[] noteNumber = new char[] { 'A', 'B', 'C', 'D', 'E', 'F', 'G' };
         private char correctNote;
+        //private int 
 
         public char GetNoteToTrain()
         {
@@ -41,7 +30,6 @@ namespace MusicLearner
             return Clef.Notes
                 .Select(n => n.Key)
                 .ToArray()[note];
-            //return noteNumber[note];
         }
 
         //public event NoteToTrainIsGotten()
@@ -54,6 +42,11 @@ namespace MusicLearner
         {
             SoundPlayer soundPlayer= new SoundPlayer(Clef.Notes[note].Sound);
             soundPlayer.Play();
+        }
+
+        public void SaveUserData()
+        {
+
         }
     }
 }

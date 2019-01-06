@@ -14,7 +14,14 @@ namespace MusicLearner
     {
         public UserStorage()
         {
-            users = this.LoadUsers();
+            if (File.Exists("users.xml"))
+            {
+                users = this.LoadUsers();
+            }
+            else
+            {
+                this.SaveUsers(users);
+            }
         }
 
         string path = Directory.GetCurrentDirectory()+"\\UserData";

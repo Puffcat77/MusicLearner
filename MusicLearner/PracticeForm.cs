@@ -18,7 +18,6 @@ namespace MusicLearner
             InitializeComponent();
             DataPath = dataPath;
             Buttons = new Button[] { aButton, bButton, cButton, dButton, eButton, fButton, gButton };
-            //Trainer = new Trainer<TrebleClef>();
             Trainer = new Trainer<TClef>();
             CurrentNote = Trainer.GetNoteToTrain();
             notePictureBox.ImageLocation = Trainer.GetNoteImage(CurrentNote);
@@ -42,42 +41,12 @@ namespace MusicLearner
 
         }
 
-        private void aButtton_Click(object sender, EventArgs e)
+        private void noteButton_Click(object sender, EventArgs e)
         {
             var button = (sender as Button);
 
             ChosenNote = (char)button.Tag;
         }
-
-        //private void bButton_Click(object sender, EventArgs e)
-        //{
-        //    ChosenNote = 'B';
-        //}
-
-        //private void cButton_Click(object sender, EventArgs e)
-        //{
-        //    ChosenNote = 'C';
-        //}
-
-        //private void dButton_Click(object sender, EventArgs e)
-        //{
-        //    ChosenNote = 'D';
-        //}
-
-        //private void eButton_Click(object sender, EventArgs e)
-        //{
-        //    ChosenNote = 'E';
-        //}
-
-        //private void fButton_Click(object sender, EventArgs e)
-        //{
-        //    ChosenNote = 'F';
-        //}
-
-        //private void gButton_Click(object sender, EventArgs e)
-        //{
-        //    ChosenNote = 'G';
-        //}
 
         private void checkAnswerButton_Click(object sender, EventArgs e)
         {
