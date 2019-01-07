@@ -117,11 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="richTextBox1.Text" xml:space="preserve">
-    <value>Мурманский государственный технический университет
-Кафедра математики, информационных систем и программного обеспечения
-Курсовая работа № 2 по дисциплине «Технологии программирования»
-Разработка приложения "Помощник запоминания нот"
-Акопян Александр Айрапетович, ИСиТб17о</value>
-  </data>
 </root>

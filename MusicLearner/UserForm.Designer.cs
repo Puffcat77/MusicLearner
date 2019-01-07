@@ -101,7 +101,7 @@
             this.chooseUserButton.Name = "chooseUserButton";
             this.chooseUserButton.Size = new System.Drawing.Size(170, 58);
             this.chooseUserButton.TabIndex = 6;
-            this.chooseUserButton.Text = "Выбрать пользователя по числовому идентификатору";
+            this.chooseUserButton.Text = "Найти и выбрать пользователя по числовому идентификатору";
             this.chooseUserButton.UseVisualStyleBackColor = true;
             this.chooseUserButton.Click += new System.EventHandler(this.chooseUserButton_Click);
             // 

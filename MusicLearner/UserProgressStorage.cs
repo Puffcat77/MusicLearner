@@ -15,10 +15,10 @@ namespace MusicLearner
         private List<UserProgress> userProgress = new List<UserProgress>();
         XmlSerializer formatter = new XmlSerializer(typeof(List<UserProgress>));
         private string userProgressPath = string.Empty;
-        public UserProgressStorage(User user,string clefType)
+        public UserProgressStorage(User user)
         {
             this.user = user;
-            userProgressPath = $@"UserData\{user.FirstName} {user.LastName}\{clefType}\progress.xml";
+            userProgressPath = $@"UserData\{user.FirstName} {user.LastName}\progress.xml";
             if (!File.Exists(userProgressPath))
             {
                 SaveProgress();
@@ -52,7 +52,7 @@ namespace MusicLearner
 
         public void AddUserProgress(UserProgress progress)
         {
-            var entry =  userProgress.FirstOrDefault(up => up.TestDate == progress.TestDate);
+            var entry =  userProgress.FirstOrDefault(up => up.TestDate == progress.TestDate && up.ClefType==progress.ClefType);
             if (entry != null)
             {
                 entry = progress;

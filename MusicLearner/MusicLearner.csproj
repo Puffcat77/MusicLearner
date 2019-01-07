@@ -60,6 +60,13 @@
     <Compile Include="ProgramInfoForm.Designer.cs">
       <DependentUpon>ProgramInfoForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="TheoryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TheoryForm.Designer.cs">
+      <DependentUpon>TheoryForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TheoryComponent.cs" />
     <Compile Include="UserProgress.cs" />
     <Compile Include="UserForm.cs">
       <SubType>Form</SubType>
@@ -82,7 +89,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TheoryForm.cs" />
+    <Compile Include="Theory.cs" />
     <Compile Include="Trainer.cs" />
     <Compile Include="TrebleClef.cs" />
     <Compile Include="User.cs" />
@@ -96,6 +103,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ProgramInfoForm.resx">
       <DependentUpon>ProgramInfoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TheoryForm.resx">
+      <DependentUpon>TheoryForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserForm.resx">
       <DependentUpon>UserForm.cs</DependentUpon>
@@ -127,6 +137,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="bin\Debug\" />
+    <Folder Include="Theory\Sounds\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Images\Bass\AInBass.png">
@@ -177,6 +188,30 @@
     <Content Include="Images\Trebel\TrebleClefWithNotes.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Theory\Images\BassClef.png" />
+    <Content Include="Theory\Images\BoardNotes\AOnTheBoard.png" />
+    <Content Include="Theory\Images\BoardNotes\BOnTheBoard.png.png" />
+    <Content Include="Theory\Images\BoardNotes\COnTheBoard.png" />
+    <Content Include="Theory\Images\BoardNotes\DOnTheBoard.png" />
+    <Content Include="Theory\Images\BoardNotes\EOnTheBoard.png" />
+    <Content Include="Theory\Images\BoardNotes\FOnTheBoard.png" />
+    <Content Include="Theory\Images\BoardNotes\GOnTheBoard.png" />
+    <Content Include="Theory\Images\Oktaves.png" />
+    <Content Include="Theory\Images\Staff.png" />
+    <Content Include="Theory\Images\TrebleAndBassTogether.png" />
+    <Content Include="Theory\Images\TrebleClef.png" />
+    <Content Include="Theory\Texts\BassClef.txt" />
+    <Content Include="Theory\Texts\CScale.txt" />
+    <Content Include="Theory\Texts\KetSigns.txt" />
+    <Content Include="Theory\Texts\MesureAndRythm.txt" />
+    <Content Include="Theory\Texts\NoteParts.txt" />
+    <Content Include="Theory\Texts\Rythm.txt" />
+    <Content Include="Theory\Texts\Staff — копия %282%29.txt" />
+    <Content Include="Theory\Texts\Staff — копия %283%29.txt" />
+    <Content Include="Theory\Texts\Staff — копия %284%29.txt" />
+    <Content Include="Theory\Texts\Staff — копия %285%29.txt" />
+    <Content Include="Theory\Texts\Staff.txt" />
+    <Content Include="Theory\Texts\TrebleClef.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

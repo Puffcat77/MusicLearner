@@ -58,19 +58,16 @@ namespace MusicLearner
             {
                 MessageBox.Show("Ответ неверный. Правильный ответ - нота " + Trainer.CurrentNote.Symbol);
             }
-            //Trainer.userData.Questions++;
             Trainer.GenerateNote();
         }
 
 
         private void finishPracticeButton_Click(object sender, EventArgs e)
         {
-            //Trainer.userData.Questions--;
-            //Trainer.AddData(Trainer.userData);
-            //Trainer.SaveUserData(Trainer.DataPath);
-            UserProgressStorage userProgressStorage = new UserProgressStorage(user,typeof(TClef).Name);
+            UserProgressStorage userProgressStorage = new UserProgressStorage(user);
             userProgressStorage.AddUserProgress(new UserProgress()
-            {   TestDate = DateTime.Today,
+            {   ClefType = typeof(TClef).Name,
+                TestDate = DateTime.Today,
                 CorrectAnswers = Trainer.CorrectAnswers,
                 BestQueue = Trainer.BestQueue,
                 Questions = Trainer.TotalQuestions });

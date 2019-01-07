@@ -10,10 +10,10 @@ namespace MusicLearner
 {
     public class UserProgress
     {
+        public string ClefType { get; set; }
         public int CorrectAnswers { get; set; }
         public int Questions { get; set; }
         public DateTime TestDate { get; set; }
         public int BestQueue { get; set; }
-        public int Queue { get; set; }
     }
 }

@@ -46,9 +46,9 @@ namespace MusicLearner
             this.Hide();
             UserForm userForm = new UserForm();
             userForm.ShowDialog();
-            if (userForm.сurrentUser != null)
+            if (userForm.currentUser != null)
             {
-                User = userForm.сurrentUser;
+                User = userForm.currentUser;
                 theoryButton.Enabled = true;
                 practiceButton.Enabled = true;
             }
@@ -56,6 +56,12 @@ namespace MusicLearner
             {
                 MessageBox.Show("Пользователь не выбран." +
                     "\nДоступ к теории и практике закрыт.");
+            }
+            if (User == null)
+            {
+                theoryButton.Enabled = false;
+                practiceButton.Enabled = false;
+                MessageBox.Show("Для доступа к теории и практике выберите или создайте пользователя.");
             }
             this.Show();
         }

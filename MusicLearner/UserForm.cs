@@ -29,7 +29,7 @@ namespace MusicLearner
 
         UserStorage userStorage = new UserStorage();
         public List<User> Users { get; set; }
-        public User сurrentUser = new User();
+        public User currentUser = new User();
         private void saveUserButton_Click(object sender, EventArgs e)
         {
             User user = new User();
@@ -56,6 +56,7 @@ namespace MusicLearner
                 chooseUserButton.Enabled = true;
                 changeUserDataButton.Enabled = true;
                 deleteUserButton.Enabled = true;
+                currentUser = user;
                 MessageBox.Show("Пользователь добавлен.");
             }
         }
@@ -85,7 +86,7 @@ namespace MusicLearner
                 userStorage.SaveUsers(Users);
                 MessageBox.Show("Пользователь удален.");
             }
-            if (Users.Capacity == 0)
+            if (Users.Count == 0)
             {
                 chooseUserButton.Enabled = false;
                 changeUserDataButton.Enabled = false;
@@ -99,7 +100,7 @@ namespace MusicLearner
         {
             try
             {
-                сurrentUser.Id = int.Parse(idTextBox.Text);
+                currentUser.Id = int.Parse(idTextBox.Text);
             }
             catch (Exception)
             {
@@ -107,12 +108,12 @@ namespace MusicLearner
                     "\n Числовой идентификатор - число от -2147483648 до 2147483647.");
                 return;
             }
-            if (userStorage.UserExists(сurrentUser))
+            if (userStorage.UserExists(currentUser))
             {
-                сurrentUser = userStorage.ChooseUser(сurrentUser.Id);
-                firstNameTextBox.Text = сurrentUser.FirstName;
-                lastNameTextBox.Text = сurrentUser.LastName;
-                idTextBox.Text = сurrentUser.Id.ToString();
+                currentUser = userStorage.ChooseUser(currentUser.Id);
+                firstNameTextBox.Text = currentUser.FirstName;
+                lastNameTextBox.Text = currentUser.LastName;
+                idTextBox.Text = currentUser.Id.ToString();
                 MessageBox.Show("Пользователь по данному идентификатору выбран.");
             }
             else
@@ -138,9 +139,17 @@ namespace MusicLearner
             }
             if (userStorage.UserExists(user))
             {
-                Users = userStorage.ChangeUserData(user);
-                userStorage.SaveUsers(Users);
-                MessageBox.Show("Данные о пользователе с данным идентификатором изменены.");
+                if (currentUser.FirstName != user.FirstName && currentUser.LastName != user.LastName)
+                {
+                    Users = userStorage.ChangeUserData(user);
+                    userStorage.SaveUsers(Users);
+                    currentUser = user;
+                    MessageBox.Show("Данные о пользователе с данным идентификатором изменены.");
+                }
+                else
+                {
+                    MessageBox.Show("Вы не изменили данные о пользователе.");
+                }
             }
             else
             {
@@ -149,6 +158,10 @@ namespace MusicLearner
         }
         private void finishButton_Click(object sender, EventArgs e)
         {
+            if (!userStorage.UserExists(currentUser))
+            {
+                currentUser = null;
+            }
             this.Close();
         }
     }

@@ -16,9 +16,7 @@ namespace MusicLearner
         public Trainer()
         {
             Clef = new T();
-
         }
-
 
         private Random random = new Random();
         public Note CurrentNote { get; set; }
@@ -27,50 +25,7 @@ namespace MusicLearner
         public int CorrectAnswers { get; private set; }
         public int BestQueue { get; private set; }
         private int currentSuccessQueue = 0;
-        //public void SaveUserData(StringBuilder dataPath)
-        //{
-        //    using (var xmlWriter = XmlWriter.Create(dataPath))
-        //    {
-        //        formatter.Serialize(xmlWriter, Data);
-        //        xmlWriter.Close();
-        //    }
-        //}
-
-        //public List<UserData> LoadUserData(string dataPath)
-        //{
-        //    List<UserData> data;
-        //    using (var xmlReader = XmlReader.Create(dataPath))
-        //    {
-        //        data = (List<UserData>)formatter.Deserialize(xmlReader);
-        //        xmlReader.Close();
-        //    }
-        //    return data;
-        //}
-
-        //public void AddData(UserData newData)
-        //{
-        //    if (Data.Count == 0)
-        //    {
-        //        Data.Add(newData);
-        //    }
-        //    else
-        //    {
-        //        if (Data.Find(d => d.TestDate == newData.TestDate) != null)
-        //        {
-        //            UserData oldData = Data.Find(d => d.TestDate == newData.TestDate);
-        //            oldData.CorrectAnswers += newData.CorrectAnswers;
-        //            oldData.Questions += newData.Questions;
-        //            if (oldData.BestQueue < newData.BestQueue)
-        //            {
-        //                oldData.BestQueue = newData.BestQueue;
-        //            }
-        //        }
-        //        else
-        //        {
-        //            Data.Add(newData);
-        //        }
-        //    }
-        //}
+        
         public Note GenerateNote()
         {
             int noteIndex = random.Next(0,6);
@@ -90,11 +45,15 @@ namespace MusicLearner
                 CorrectAnswers += 1;
             }
             else
-            {
+            {   
                 BestQueue = BestQueue > currentSuccessQueue
                             ? BestQueue
                             : currentSuccessQueue;
                 currentSuccessQueue = 0;
+            }
+            if (CorrectAnswers == TotalQuestions)
+            {
+                BestQueue = CorrectAnswers;
             }
             OnAnswerApplied?.Invoke(this, new NoteEventArgs() { Note = note, IsNotValid = isNoteValid });
         }

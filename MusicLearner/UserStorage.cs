@@ -59,11 +59,14 @@ namespace MusicLearner
             return users;
         }
 
-        public List<User> DeleteUser (User user)
+        public List<User> DeleteUser(User user)
         {
             List<User> newUsers = users;
-            newUsers.Remove(users.Find((u)=> user.Id==u.Id));
-            Directory.Delete(path + "\\" + user.FirstName + " " + user.LastName,true);
+            newUsers.Remove(users.Find((u) => user.Id == u.Id));
+            if (Directory.Exists(path + "\\" + user.FirstName + " " + user.LastName))
+            {
+                Directory.Delete(path + "\\" + user.FirstName + " " + user.LastName, true);
+            }
             return newUsers;
         }
 
@@ -77,8 +80,11 @@ namespace MusicLearner
         public List<User> ChangeUserData(User newUser)
         {
             int userNumber = users.FindIndex((u) => u.Id == newUser.Id);
-            Directory.Move(path + "\\" + users[userNumber].FirstName + " " + users[userNumber].LastName, 
+            if (Directory.Exists(path + "\\" + users[userNumber].FirstName + " " + users[userNumber].LastName))
+            { 
+                Directory.Move(path + "\\" + users[userNumber].FirstName + " " + users[userNumber].LastName,
                 path + "\\" + newUser.FirstName + " " + newUser.LastName);
+            }
             users[userNumber].FirstName = newUser.FirstName;
             users[userNumber].LastName = newUser.LastName;
             return users;

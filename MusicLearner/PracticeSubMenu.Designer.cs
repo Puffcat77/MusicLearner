@@ -72,7 +72,7 @@
             this.Controls.Add(this.bassClefButton);
             this.Controls.Add(this.trebleClefButton);
             this.Name = "PracticeSubMenu";
-            this.Text = "PracticeSubMenu";
+            this.Text = "Выбор ключа";
             this.ResumeLayout(false);
 
         }
