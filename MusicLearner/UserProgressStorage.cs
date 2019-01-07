@@ -52,10 +52,16 @@ namespace MusicLearner
 
         public void AddUserProgress(UserProgress progress)
         {
-            var entry =  userProgress.FirstOrDefault(up => up.TestDate == progress.TestDate && up.ClefType==progress.ClefType);
+            var entry = userProgress.FirstOrDefault(up => up.TestDate == progress.TestDate && up.ClefType == progress.ClefType);
             if (entry != null)
             {
-                entry = progress;
+                progress.CorrectAnswers += entry.CorrectAnswers;
+                progress.Questions += entry.Questions;
+                if (progress.BestQueue < entry.BestQueue)
+                {
+                    progress.BestQueue = entry.BestQueue;
+                }
+                userProgress[userProgress.FindIndex(up => up == entry)] = progress;
             }
             userProgress.Add(progress);
         }
