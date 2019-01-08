@@ -53,6 +53,7 @@
             this.theoryButton.TabIndex = 1;
             this.theoryButton.Text = "Теоретические сведения";
             this.theoryButton.UseVisualStyleBackColor = true;
+            this.theoryButton.Click += new System.EventHandler(this.theoryButton_Click);
             // 
             // practiceButton
             // 

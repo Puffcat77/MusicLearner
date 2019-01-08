@@ -18,28 +18,13 @@ namespace MusicLearner
             InitializeComponent();
             if (User == null)
             {
-                theoryButton.Enabled = false;
                 practiceButton.Enabled = false;
-                MessageBox.Show("Для доступа к теории и практике выберите или создайте пользователя.");
+                MessageBox.Show("Для доступа к практике выберите или создайте пользователя.");
             }
         }
 
         public User User { get; set; }
         public StringBuilder dataPath = new StringBuilder(Directory.GetCurrentDirectory());
-
-        private void ExitButton_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void practiceButton_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            dataPath.Append("\\" + User.FirstName + " " + User.LastName);
-            PracticeSubMenu subMenu = new PracticeSubMenu(User);
-            subMenu.ShowDialog();
-            this.Show();
-        }
 
         private void userButton_Click(object sender, EventArgs e)
         {
@@ -49,20 +34,34 @@ namespace MusicLearner
             if (userForm.currentUser != null)
             {
                 User = userForm.currentUser;
-                theoryButton.Enabled = true;
                 practiceButton.Enabled = true;
             }
             else
             {
                 MessageBox.Show("Пользователь не выбран." +
-                    "\nДоступ к теории и практике закрыт.");
+                    "\nДоступ к практике закрыт.");
             }
             if (User == null)
             {
-                theoryButton.Enabled = false;
                 practiceButton.Enabled = false;
-                MessageBox.Show("Для доступа к теории и практике выберите или создайте пользователя.");
+                MessageBox.Show("Для доступа к практике выберите или создайте пользователя.");
             }
+            this.Show();
+        }
+        private void theoryButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            NoteTheoryForm noteTheoryForm = new NoteTheoryForm();
+            noteTheoryForm.ShowDialog();
+            this.Show();
+        }
+        
+        private void practiceButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            dataPath.Append("\\" + User.FirstName + " " + User.LastName);
+            PracticeSubMenu subMenu = new PracticeSubMenu(User);
+            subMenu.ShowDialog();
             this.Show();
         }
 
@@ -73,5 +72,10 @@ namespace MusicLearner
             programInfoForm.ShowDialog();
             this.Show();
         }
+        private void ExitButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
     }
 }

@@ -48,6 +48,12 @@
     <Compile Include="BassClef.cs" />
     <Compile Include="Clef.cs" />
     <Compile Include="NoteEventArgs.cs" />
+    <Compile Include="NoteTheoryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NoteTheoryForm.Designer.cs">
+      <DependentUpon>NoteTheoryForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="PracticeSubMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -95,6 +101,9 @@
     <Compile Include="User.cs" />
     <Compile Include="UserProgressStorage.cs" />
     <Compile Include="UserStorage.cs" />
+    <EmbeddedResource Include="NoteTheoryForm.resx">
+      <DependentUpon>NoteTheoryForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PracticeForm.resx">
       <DependentUpon>PracticeForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -143,9 +152,6 @@
     <Content Include="Images\Bass\AInBass.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Bass\BassClefWithNotes.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="Images\Bass\BInBass.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -164,6 +170,13 @@
     <Content Include="Images\Bass\GInBass.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Images\BoardNotes\AOnTheBoard.png" />
+    <Content Include="Images\BoardNotes\BOnTheBoard.png" />
+    <Content Include="Images\BoardNotes\COnTheBoard.png" />
+    <Content Include="Images\BoardNotes\DOnTheBoard.png" />
+    <Content Include="Images\BoardNotes\EOnTheBoard.png" />
+    <Content Include="Images\BoardNotes\FOnTheBoard.png" />
+    <Content Include="Images\BoardNotes\GOnTheBoard.png" />
     <Content Include="Images\Trebel\AInTreble.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -185,17 +198,7 @@
     <Content Include="Images\Trebel\GInTreble.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\Trebel\TrebleClefWithNotes.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="Theory\Images\BassClef.png" />
-    <Content Include="Theory\Images\BoardNotes\AOnTheBoard.png" />
-    <Content Include="Theory\Images\BoardNotes\BOnTheBoard.png.png" />
-    <Content Include="Theory\Images\BoardNotes\COnTheBoard.png" />
-    <Content Include="Theory\Images\BoardNotes\DOnTheBoard.png" />
-    <Content Include="Theory\Images\BoardNotes\EOnTheBoard.png" />
-    <Content Include="Theory\Images\BoardNotes\FOnTheBoard.png" />
-    <Content Include="Theory\Images\BoardNotes\GOnTheBoard.png" />
     <Content Include="Theory\Images\Oktaves.png" />
     <Content Include="Theory\Images\Staff.png" />
     <Content Include="Theory\Images\TrebleAndBassTogether.png" />
