@@ -26,8 +26,12 @@ namespace MusicLearner
             var note = (char)(sender as Button).Tag;
             string[] paths = Theory.GetNoteImages(note);
             bassPictureBox.ImageLocation = paths[0];
+            bassTextBox.Text = note + " в басовом ключе";
             keyboardPictureBox.ImageLocation = paths[1];
+            keyboardTextBox.Text = note + " на клавиатуре";
             treblePictureBox.ImageLocation = paths[2];
+            trebleTextBox.Text = note + " в скрипичном ключе";
+
         }
 
         private void backButton_Click(object sender, EventArgs e)

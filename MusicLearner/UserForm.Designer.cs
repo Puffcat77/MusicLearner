@@ -130,7 +130,7 @@
             this.Controls.Add(this.saveUserButton);
             this.Cursor = System.Windows.Forms.Cursors.SizeAll;
             this.Name = "UserForm";
-            this.Text = "CreateUserForm";
+            this.Text = "Меню пользователя";
             this.ResumeLayout(false);
             this.PerformLayout();
 

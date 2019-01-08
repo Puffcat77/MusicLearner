@@ -39,6 +39,9 @@
             this.fButton = new System.Windows.Forms.Button();
             this.gButton = new System.Windows.Forms.Button();
             this.backButton = new System.Windows.Forms.Button();
+            this.keyboardTextBox = new System.Windows.Forms.TextBox();
+            this.trebleTextBox = new System.Windows.Forms.TextBox();
+            this.bassTextBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.bassPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyboardPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.treblePictureBox)).BeginInit();
@@ -46,25 +49,31 @@
             // 
             // bassPictureBox
             // 
+            this.bassPictureBox.Enabled = false;
             this.bassPictureBox.Location = new System.Drawing.Point(39, 61);
             this.bassPictureBox.Name = "bassPictureBox";
             this.bassPictureBox.Size = new System.Drawing.Size(168, 157);
+            this.bassPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.bassPictureBox.TabIndex = 0;
             this.bassPictureBox.TabStop = false;
             // 
             // keyboardPictureBox
             // 
+            this.keyboardPictureBox.Enabled = false;
             this.keyboardPictureBox.Location = new System.Drawing.Point(253, 61);
             this.keyboardPictureBox.Name = "keyboardPictureBox";
             this.keyboardPictureBox.Size = new System.Drawing.Size(168, 157);
+            this.keyboardPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.keyboardPictureBox.TabIndex = 0;
             this.keyboardPictureBox.TabStop = false;
             // 
             // treblePictureBox
             // 
+            this.treblePictureBox.Enabled = false;
             this.treblePictureBox.Location = new System.Drawing.Point(473, 61);
             this.treblePictureBox.Name = "treblePictureBox";
             this.treblePictureBox.Size = new System.Drawing.Size(168, 157);
+            this.treblePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.treblePictureBox.TabIndex = 0;
             this.treblePictureBox.TabStop = false;
             // 
@@ -155,11 +164,41 @@
             this.backButton.UseVisualStyleBackColor = true;
             this.backButton.Click += new System.EventHandler(this.backButton_Click);
             // 
+            // keyboardTextBox
+            // 
+            this.keyboardTextBox.Enabled = false;
+            this.keyboardTextBox.Location = new System.Drawing.Point(253, 241);
+            this.keyboardTextBox.Name = "keyboardTextBox";
+            this.keyboardTextBox.Size = new System.Drawing.Size(167, 20);
+            this.keyboardTextBox.TabIndex = 2;
+            this.keyboardTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // trebleTextBox
+            // 
+            this.trebleTextBox.Enabled = false;
+            this.trebleTextBox.Location = new System.Drawing.Point(474, 241);
+            this.trebleTextBox.Name = "trebleTextBox";
+            this.trebleTextBox.Size = new System.Drawing.Size(167, 20);
+            this.trebleTextBox.TabIndex = 2;
+            this.trebleTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // bassTextBox
+            // 
+            this.bassTextBox.Enabled = false;
+            this.bassTextBox.Location = new System.Drawing.Point(40, 241);
+            this.bassTextBox.Name = "bassTextBox";
+            this.bassTextBox.Size = new System.Drawing.Size(167, 20);
+            this.bassTextBox.TabIndex = 2;
+            this.bassTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // NoteTheoryForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(685, 450);
+            this.Controls.Add(this.bassTextBox);
+            this.Controls.Add(this.trebleTextBox);
+            this.Controls.Add(this.keyboardTextBox);
             this.Controls.Add(this.gButton);
             this.Controls.Add(this.fButton);
             this.Controls.Add(this.eButton);
@@ -172,11 +211,12 @@
             this.Controls.Add(this.keyboardPictureBox);
             this.Controls.Add(this.bassPictureBox);
             this.Name = "NoteTheoryForm";
-            this.Text = "NoteTheoryForm";
+            this.Text = "Теоретические сдедения по нотам";
             ((System.ComponentModel.ISupportInitialize)(this.bassPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.keyboardPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.treblePictureBox)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -193,5 +233,8 @@
         private System.Windows.Forms.Button fButton;
         private System.Windows.Forms.Button gButton;
         private System.Windows.Forms.Button backButton;
+        private System.Windows.Forms.TextBox keyboardTextBox;
+        private System.Windows.Forms.TextBox trebleTextBox;
+        private System.Windows.Forms.TextBox bassTextBox;
     }
 }

@@ -10,13 +10,13 @@ namespace MusicLearner
     {
         public TrebleClef()
         {
-            this['A'].Image = "Images\\Trebel\\AInTreble.png";
-            this['B'].Image = "Images\\Trebel\\BInTreble.png";
-            this['C'].Image = "Images\\Trebel\\CInTreble.png";
-            this['D'].Image = "Images\\Trebel\\DInTreble.png";
-            this['E'].Image = "Images\\Trebel\\EInTreble.png";
-            this['F'].Image = "Images\\Trebel\\FInTreble.png";
-            this['G'].Image = "Images\\Trebel\\GInTreble.png";
+            this['A'].Image = "Images\\Treble\\AInTreble.png";
+            this['B'].Image = "Images\\Treble\\BInTreble.png";
+            this['C'].Image = "Images\\Treble\\CInTreble.png";
+            this['D'].Image = "Images\\Treble\\DInTreble.png";
+            this['E'].Image = "Images\\Treble\\EInTreble.png";
+            this['F'].Image = "Images\\Treble\\FInTreble.png";
+            this['G'].Image = "Images\\Treble\\GInTreble.png";
             this['A'].Sound = "";
             this['B'].Sound = "";
             this['C'].Sound = "";

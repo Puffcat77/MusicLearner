@@ -45,6 +45,7 @@
             this.notePictureBox.Location = new System.Drawing.Point(188, 21);
             this.notePictureBox.Name = "notePictureBox";
             this.notePictureBox.Size = new System.Drawing.Size(260, 167);
+            this.notePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.notePictureBox.TabIndex = 0;
             this.notePictureBox.TabStop = false;
             // 
