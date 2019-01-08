@@ -33,11 +33,12 @@
             this.practiceButton = new System.Windows.Forms.Button();
             this.userButton = new System.Windows.Forms.Button();
             this.programInfoButton = new System.Windows.Forms.Button();
+            this.userStatisticButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // ExitButton
             // 
-            this.ExitButton.Location = new System.Drawing.Point(69, 274);
+            this.ExitButton.Location = new System.Drawing.Point(63, 310);
             this.ExitButton.Name = "ExitButton";
             this.ExitButton.Size = new System.Drawing.Size(171, 49);
             this.ExitButton.TabIndex = 3;
@@ -47,7 +48,7 @@
             // 
             // theoryButton
             // 
-            this.theoryButton.Location = new System.Drawing.Point(69, 109);
+            this.theoryButton.Location = new System.Drawing.Point(63, 90);
             this.theoryButton.Name = "theoryButton";
             this.theoryButton.Size = new System.Drawing.Size(171, 49);
             this.theoryButton.TabIndex = 1;
@@ -57,7 +58,7 @@
             // 
             // practiceButton
             // 
-            this.practiceButton.Location = new System.Drawing.Point(69, 164);
+            this.practiceButton.Location = new System.Drawing.Point(63, 145);
             this.practiceButton.Name = "practiceButton";
             this.practiceButton.Size = new System.Drawing.Size(171, 49);
             this.practiceButton.TabIndex = 2;
@@ -67,7 +68,7 @@
             // 
             // userButton
             // 
-            this.userButton.Location = new System.Drawing.Point(69, 54);
+            this.userButton.Location = new System.Drawing.Point(63, 35);
             this.userButton.Name = "userButton";
             this.userButton.Size = new System.Drawing.Size(171, 49);
             this.userButton.TabIndex = 0;
@@ -77,7 +78,7 @@
             // 
             // programInfoButton
             // 
-            this.programInfoButton.Location = new System.Drawing.Point(69, 219);
+            this.programInfoButton.Location = new System.Drawing.Point(63, 255);
             this.programInfoButton.Name = "programInfoButton";
             this.programInfoButton.Size = new System.Drawing.Size(171, 49);
             this.programInfoButton.TabIndex = 4;
@@ -85,12 +86,23 @@
             this.programInfoButton.UseVisualStyleBackColor = true;
             this.programInfoButton.Click += new System.EventHandler(this.programInfoButton_Click);
             // 
+            // userStatisticButton
+            // 
+            this.userStatisticButton.Location = new System.Drawing.Point(63, 200);
+            this.userStatisticButton.Name = "userStatisticButton";
+            this.userStatisticButton.Size = new System.Drawing.Size(171, 49);
+            this.userStatisticButton.TabIndex = 5;
+            this.userStatisticButton.Text = "Статистика пользователя";
+            this.userStatisticButton.UseVisualStyleBackColor = true;
+            this.userStatisticButton.Click += new System.EventHandler(this.userStatisticButton_Click);
+            // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(319, 384);
+            this.Controls.Add(this.userStatisticButton);
             this.Controls.Add(this.programInfoButton);
             this.Controls.Add(this.userButton);
             this.Controls.Add(this.practiceButton);
@@ -109,6 +121,7 @@
         private System.Windows.Forms.Button practiceButton;
         private System.Windows.Forms.Button userButton;
         private System.Windows.Forms.Button programInfoButton;
+        private System.Windows.Forms.Button userStatisticButton;
     }
 }
 

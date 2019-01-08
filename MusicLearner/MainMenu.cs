@@ -19,7 +19,8 @@ namespace MusicLearner
             if (User == null)
             {
                 practiceButton.Enabled = false;
-                MessageBox.Show("Для доступа к практике выберите или создайте пользователя.");
+                userStatisticButton.Enabled = false;
+                MessageBox.Show("Для доступа к практике и статистике выберите или создайте пользователя.");
             }
         }
 
@@ -35,6 +36,7 @@ namespace MusicLearner
             {
                 User = userForm.currentUser;
                 practiceButton.Enabled = true;
+                userStatisticButton.Enabled = true;
             }
             else
             {
@@ -44,7 +46,8 @@ namespace MusicLearner
             if (User == null)
             {
                 practiceButton.Enabled = false;
-                MessageBox.Show("Для доступа к практике выберите или создайте пользователя.");
+                userStatisticButton.Enabled = false;
+                MessageBox.Show("Для доступа к практике и статистике выберите или создайте пользователя.");
             }
             this.Show();
         }
@@ -77,5 +80,12 @@ namespace MusicLearner
             this.Close();
         }
 
+        private void userStatisticButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            StatisticForm statistic = new StatisticForm(new UserProgressStorage(User));
+            statistic.ShowDialog();
+            this.Show();
+        }
     }
 }
