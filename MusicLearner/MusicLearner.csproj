@@ -46,90 +46,90 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BassClef.cs" />
-    <Compile Include="Clef.cs" />
-    <Compile Include="NoteEventArgs.cs" />
-    <Compile Include="NoteTheoryForm.cs">
+    <Compile Include="Logic\BassClef.cs" />
+    <Compile Include="Logic\Clef.cs" />
+    <Compile Include="Logic\NoteEventArgs.cs" />
+    <Compile Include="Forms\NoteTheoryForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="NoteTheoryForm.Designer.cs">
+    <Compile Include="Forms\NoteTheoryForm.Designer.cs">
       <DependentUpon>NoteTheoryForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="PracticeSubMenu.cs">
+    <Compile Include="Forms\PracticeSubMenu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PracticeSubMenu.Designer.cs">
+    <Compile Include="Forms\PracticeSubMenu.Designer.cs">
       <DependentUpon>PracticeSubMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="ProgramInfoForm.cs">
+    <Compile Include="Forms\ProgramInfoForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ProgramInfoForm.Designer.cs">
+    <Compile Include="Forms\ProgramInfoForm.Designer.cs">
       <DependentUpon>ProgramInfoForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="StatisticForm.cs">
+    <Compile Include="Forms\StatisticForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="StatisticForm.Designer.cs">
+    <Compile Include="Forms\StatisticForm.Designer.cs">
       <DependentUpon>StatisticForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="TheoryForm.cs">
+    <Compile Include="Forms\TheoryForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TheoryForm.Designer.cs">
+    <Compile Include="Forms\TheoryForm.Designer.cs">
       <DependentUpon>TheoryForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="TheoryComponent.cs" />
-    <Compile Include="UserProgress.cs" />
-    <Compile Include="UserForm.cs">
+    <Compile Include="Logic\TheoryComponent.cs" />
+    <Compile Include="Logic\UserProgress.cs" />
+    <Compile Include="Forms\UserForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UserForm.Designer.cs">
+    <Compile Include="Forms\UserForm.Designer.cs">
       <DependentUpon>UserForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="MainMenu.cs">
+    <Compile Include="Forms\MainMenu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainMenu.Designer.cs">
+    <Compile Include="Forms\MainMenu.Designer.cs">
       <DependentUpon>MainMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="Note.cs" />
-    <Compile Include="PracticeForm.cs">
+    <Compile Include="Logic\Note.cs" />
+    <Compile Include="Forms\PracticeForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PracticeForm.Designer.cs">
+    <Compile Include="Forms\PracticeForm.Designer.cs">
       <DependentUpon>PracticeForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Theory.cs" />
-    <Compile Include="Trainer.cs" />
-    <Compile Include="TrebleClef.cs" />
-    <Compile Include="User.cs" />
-    <Compile Include="UserProgressStorage.cs" />
-    <Compile Include="UserStorage.cs" />
-    <EmbeddedResource Include="NoteTheoryForm.resx">
+    <Compile Include="Logic\Theory.cs" />
+    <Compile Include="Logic\Trainer.cs" />
+    <Compile Include="Logic\TrebleClef.cs" />
+    <Compile Include="Logic\User.cs" />
+    <Compile Include="Logic\UserProgressStorage.cs" />
+    <Compile Include="Logic\UserStorage.cs" />
+    <EmbeddedResource Include="Forms\NoteTheoryForm.resx">
       <DependentUpon>NoteTheoryForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PracticeForm.resx">
+    <EmbeddedResource Include="Forms\PracticeForm.resx">
       <DependentUpon>PracticeForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PracticeSubMenu.resx">
+    <EmbeddedResource Include="Forms\PracticeSubMenu.resx">
       <DependentUpon>PracticeSubMenu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ProgramInfoForm.resx">
+    <EmbeddedResource Include="Forms\ProgramInfoForm.resx">
       <DependentUpon>ProgramInfoForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="StatisticForm.resx">
+    <EmbeddedResource Include="Forms\StatisticForm.resx">
       <DependentUpon>StatisticForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TheoryForm.resx">
+    <EmbeddedResource Include="Forms\TheoryForm.resx">
       <DependentUpon>TheoryForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserForm.resx">
+    <EmbeddedResource Include="Forms\UserForm.resx">
       <DependentUpon>UserForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MainMenu.resx">
+    <EmbeddedResource Include="Forms\MainMenu.resx">
       <DependentUpon>MainMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -155,30 +155,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="bin\Debug\Images\" />
     <Folder Include="Theory\Sounds\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="bin\Debug\Images\BoardNotes\AOnTheBoard.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="bin\Debug\Images\BoardNotes\BOnTheBoard.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="bin\Debug\Images\BoardNotes\COnTheBoard.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="bin\Debug\Images\BoardNotes\DOnTheBoard.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="bin\Debug\Images\BoardNotes\EOnTheBoard.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="bin\Debug\Images\BoardNotes\FOnTheBoard.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="bin\Debug\Images\BoardNotes\GOnTheBoard.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="Images\Bass\AInBass.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
