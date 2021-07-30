@@ -180,13 +180,27 @@
     <Content Include="Images\Bass\GInBass.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Images\BoardNotes\AOnTheBoard.png" />
-    <Content Include="Images\BoardNotes\BOnTheBoard.png" />
-    <Content Include="Images\BoardNotes\COnTheBoard.png" />
-    <Content Include="Images\BoardNotes\DOnTheBoard.png" />
-    <Content Include="Images\BoardNotes\EOnTheBoard.png" />
-    <Content Include="Images\BoardNotes\FOnTheBoard.png" />
-    <Content Include="Images\BoardNotes\GOnTheBoard.png" />
+    <Content Include="Images\BoardNotes\AOnTheBoard.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\BoardNotes\BOnTheBoard.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\BoardNotes\COnTheBoard.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\BoardNotes\DOnTheBoard.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\BoardNotes\EOnTheBoard.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\BoardNotes\FOnTheBoard.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\BoardNotes\GOnTheBoard.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Images\Treble\AInTreble.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
